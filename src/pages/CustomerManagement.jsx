@@ -5,7 +5,6 @@ const initialCustomers = [
   { id: 2, name: "Siti Aminah", email: "siti@mail.com", phone: "089876543210", active: false },
   { id: 3, name: "Andi Wijaya", email: "andi@mail.com", phone: "081299988877", active: true },
 ];
-
 export default function CustomerManagement() {
   const [customers, setCustomers] = useState(initialCustomers);
   const [showForm, setShowForm] = useState(false);
