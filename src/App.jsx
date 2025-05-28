@@ -4,6 +4,8 @@ import Dashboard from "./pages/Dashboard";
 import Sales from "./pages/Sales";
 import CustomerManagement from "./pages/CustomerManagement";
 import CustomerProfileDashboard from "./pages/CustomerProfileDashboard";  // pastikan import ini benar
+import FormPenjualan from "./pages/FormPenjualan";
+import TrackingPaket from "./pages/TrackingPaket"; // import halaman tracking paket
 
 function App() {
   return (
@@ -13,6 +15,9 @@ function App() {
         <Route path="/penjualan" element={<Sales />} />
         <Route path="/pelanggan" element={<CustomerManagement />} />
         <Route path="/customer-profile" element={<CustomerProfileDashboard />} /> {/* route baru */}
+        <Route path="/pelanggan" element={<CustomerManagement />} />
+        <Route path="/formpenjualan" element={<FormPenjualan />} />
+        <Route path="/tracking-paket" element={<TrackingPaket />} /> {/* route tracking paket */}
       </Route>
     </Routes>
   );

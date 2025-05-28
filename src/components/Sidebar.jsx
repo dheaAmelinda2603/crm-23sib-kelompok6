@@ -1,24 +1,25 @@
 import {
   LayoutDashboard,
-  Users,
+  User,
   ShoppingCart,
   Box,
   BarChart2,
   Settings,
-  User,
+  List,
   LogIn,
   UserPlus,
-  UserCheck,
-} from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+  Package,  // <-- import icon Package untuk Tracking Paket
+} from 'lucide-react'
+import { Link, useLocation } from 'react-router-dom'
 
 const menuItems = [
-  { name: "Dashboard", icon: <LayoutDashboard />, path: "/" },
-  { name: "Produk", icon: <Box />, path: "/produk" },
-  { name: "Penjualan", icon: <ShoppingCart />, path: "/penjualan" },
-  { name: "Pelanggan", icon: <User />, path: "/pelanggan" },
-  { name: "Laporan", icon: <BarChart2 />, path: "/laporan" },
-];
+  { name: 'Dashboard', icon: <LayoutDashboard />, path: '/' },
+  { name: 'Produk', icon: <Box />, path: '/produk' },
+  { name: 'Pelanggan', icon: <User />, path: '/pelanggan' },
+  { name: 'FormPenjualan', icon: <List />, path: '/formpenjualan' },
+  { name: 'Tracking Paket', icon: <Package />, path: '/tracking-paket' },  // <-- menu baru
+  { name: 'Laporan', icon: <BarChart2 />, path: '/laporan' },
+]
 
 const accountItems = [
   { name: "Pengaturan Akun", icon: <Settings />, path: "/akun" },
