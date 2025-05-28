@@ -1,3 +1,4 @@
+
 import {
   LayoutDashboard,
   User,
@@ -6,6 +7,8 @@ import {
   BarChart2,
   Settings,
   List,
+Bell,
+  Star,
   LogIn,
   UserPlus,
   Package,
@@ -19,6 +22,9 @@ const menuItems = [
   { name: 'Pelanggan', icon: <User />, path: '/pelanggan' },
   { name: 'FormPenjualan', icon: <List />, path: '/formpenjualan' },
   { name: 'Tracking Paket', icon: <Package />, path: '/tracking-paket' },
+  { name: 'Penjualan', icon: <ShoppingCart />, path: '/penjualan' },
+  { name: 'FlashSale', icon: <Bell />, path: '/flashsale' },
+  { name: 'LoyaltyPoint', icon: <Star />, path: '/loyaltypoint' },
   { name: 'Laporan', icon: <BarChart2 />, path: '/laporan' },
 
   // Tambahan menu baru untuk Ulasan & Rating Treatment
