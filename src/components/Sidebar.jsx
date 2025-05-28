@@ -1,11 +1,14 @@
+
 import {
   LayoutDashboard,
   Users,         // untuk pelanggan
   ShoppingCart,  // untuk penjualan
+Bell,
   Box,           // untuk produk
   BarChart2,     // untuk laporan
   Settings,      // untuk pengaturan akun
   User,
+  Star,
   LogIn,
   UserPlus,
 } from 'lucide-react'
@@ -15,6 +18,8 @@ const menuItems = [
   { name: 'Dashboard', icon: <LayoutDashboard />, path: '/' },
   { name: 'Produk', icon: <Box />, path: '/produk' },
   { name: 'Penjualan', icon: <ShoppingCart />, path: '/penjualan' },
+  { name: 'FlashSale', icon: <Bell />, path: '/flashsale' },
+  { name: 'LoyaltyPoint', icon: <Star />, path: '/loyaltypoint' },
   { name: 'Laporan', icon: <BarChart2 />, path: '/laporan' },
 ]
 
