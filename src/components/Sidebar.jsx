@@ -8,7 +8,8 @@ import {
   List,
   LogIn,
   UserPlus,
-  Package,  // <-- import icon Package untuk Tracking Paket
+  Package,
+  UserCheck,
 } from 'lucide-react'
 import { Link, useLocation } from 'react-router-dom'
 
@@ -17,8 +18,11 @@ const menuItems = [
   { name: 'Produk', icon: <Box />, path: '/produk' },
   { name: 'Pelanggan', icon: <User />, path: '/pelanggan' },
   { name: 'FormPenjualan', icon: <List />, path: '/formpenjualan' },
-  { name: 'Tracking Paket', icon: <Package />, path: '/tracking-paket' },  // <-- menu baru
+  { name: 'Tracking Paket', icon: <Package />, path: '/tracking-paket' },
   { name: 'Laporan', icon: <BarChart2 />, path: '/laporan' },
+
+  // Tambahan menu baru untuk Ulasan & Rating Treatment
+  { name: 'Ulasan & Rating', icon: <List />, path: '/treatment-reviews' },
 ]
 
 const accountItems = [

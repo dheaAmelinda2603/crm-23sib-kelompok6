@@ -6,6 +6,7 @@ import CustomerManagement from "./pages/CustomerManagement";
 import CustomerProfileDashboard from "./pages/CustomerProfileDashboard";  // pastikan import ini benar
 import FormPenjualan from "./pages/FormPenjualan";
 import TrackingPaket from "./pages/TrackingPaket"; // import halaman tracking paket
+import TreatmentReviews from "./pages/TreatmentReviews";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/pelanggan" element={<CustomerManagement />} />
         <Route path="/formpenjualan" element={<FormPenjualan />} />
         <Route path="/tracking-paket" element={<TrackingPaket />} /> {/* route tracking paket */}
+        <Route path="/treatment-reviews" element={<TreatmentReviews />} />
       </Route>
     </Routes>
   );
