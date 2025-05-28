@@ -1,13 +1,14 @@
 import {
   LayoutDashboard,
-  Users,         // untuk pelanggan
-  ShoppingCart,  // untuk penjualan
-  Box,           // untuk produk
-  BarChart2,     // untuk laporan
-  Settings,      // untuk pengaturan akun
   User,
+  ShoppingCart,
+  Box,
+  BarChart2,
+  Settings,
+  List,
   LogIn,
   UserPlus,
+  Package,  // <-- import icon Package untuk Tracking Paket
 } from 'lucide-react'
 import { Link, useLocation } from 'react-router-dom'
 
@@ -15,6 +16,8 @@ const menuItems = [
   { name: 'Dashboard', icon: <LayoutDashboard />, path: '/' },
   { name: 'Produk', icon: <Box />, path: '/produk' },
   { name: 'Pelanggan', icon: <User />, path: '/pelanggan' },
+  { name: 'FormPenjualan', icon: <List />, path: '/formpenjualan' },
+  { name: 'Tracking Paket', icon: <Package />, path: '/tracking-paket' },  // <-- menu baru
   { name: 'Laporan', icon: <BarChart2 />, path: '/laporan' },
 ]
 
