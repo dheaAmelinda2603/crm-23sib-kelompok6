@@ -2,9 +2,16 @@ import { Route, Routes } from "react-router-dom";
 import MainLayout from "./components/MainLayout";
 import Dashboard from "./pages/Dashboard";
 import Sales from "./pages/Sales";
+import CustomerManagement from "./pages/CustomerManagement";
+import CustomerProfileDashboard from "./pages/CustomerProfileDashboard";  // pastikan import ini benar
+import FormPenjualan from "./pages/FormPenjualan";
+import TrackingPaket from "./pages/TrackingPaket"; // import halaman tracking paket
+import TreatmentReviews from "./pages/TreatmentReviews";
+import FlashSale from "./pages/FlashSale";
+import LoyaltyPoint from "./pages/LoyaltyPoint";
 
-function App(){
-  return(
+function App() {
+  return (
     <Routes>
       <Route element={<MainLayout />}>
         <Route path="/" element={<Dashboard />} />
