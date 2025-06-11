@@ -21,6 +21,9 @@ const menuItems = [
   { name: 'FlashSale', icon: <Bell />, path: '/flashsale' },
   { name: 'LoyaltyPoint', icon: <Star />, path: '/loyaltypoint' },
   { name: 'Laporan', icon: <BarChart2 />, path: '/laporan' },
+  { name: 'Perawatan', icon: <BarChart2 />, path: '/perawatan' },
+  { name: 'Tentang', icon: <BarChart2 />, path: '/tentang' },
+
 ]
 
 const accountItems = [
