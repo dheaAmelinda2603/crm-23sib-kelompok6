@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 
-const initialCustomers = [
-  { id: 1, name: "Budi Santoso", email: "budi@mail.com", phone: "081234567890", active: true },
-  { id: 2, name: "Siti Aminah", email: "siti@mail.com", phone: "089876543210", active: false },
-  { id: 3, name: "Andi Wijaya", email: "andi@mail.com", phone: "081299988877", active: true },
+const initialSales = [
+  { id: 1, name: "Budi Santoso", email: "budi@mail.com", phone: "081234567890", active: true, salesTarget: 10000 },
+  { id: 2, name: "Siti Aminah", email: "siti@mail.com", phone: "089876543210", active: false, salesTarget: 8000 },
+  { id: 3, name: "Andi Wijaya", email: "andi@mail.com", phone: "081299988877", active: true, salesTarget: 12000 },
 ];
-export default function CustomerManagement() {
-  const [customers, setCustomers] = useState(initialCustomers);
+
+export default function Sales() {
+  const [sales, setSales] = useState(initialSales);
   const [showForm, setShowForm] = useState(false);
-  const [formData, setFormData] = useState({ name: "", email: "", phone: "", active: true });
+  const [formData, setFormData] = useState({ name: "", email: "", phone: "", active: true, salesTarget: 0 });
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -18,35 +19,35 @@ export default function CustomerManagement() {
     }));
   };
 
-  const handleAddCustomer = () => {
-    if (!formData.name || !formData.email || !formData.phone) {
-      alert("Semua field wajib diisi!");
+  const handleAddSales = () => {
+    if (!formData.name || !formData.email || !formData.phone || formData.salesTarget <= 0) {
+      alert("Semua field wajib diisi dan target penjualan harus lebih dari 0!");
       return;
     }
-    const newCustomer = {
-      id: customers.length + 1,
+    const newSales = {
+      id: sales.length + 1,
       ...formData,
     };
-    setCustomers([...customers, newCustomer]);
-    setFormData({ name: "", email: "", phone: "", active: true });
+    setSales([...sales, newSales]);
+    setFormData({ name: "", email: "", phone: "", active: true, salesTarget: 0 });
     setShowForm(false);
   };
 
   const handleDelete = (id) => {
-    if (window.confirm("Yakin ingin menghapus pelanggan ini?")) {
-      setCustomers(customers.filter((c) => c.id !== id));
+    if (window.confirm("Yakin ingin menghapus sales ini?")) {
+      setSales(sales.filter((s) => s.id !== id));
     }
   };
 
   return (
     <div className="p-6 max-w-5xl mx-auto">
-      <h1 className="text-2xl font-semibold mb-4">Management Pelanggan</h1>
+      <h1 className="text-2xl font-semibold mb-4">Manajemen Sales</h1>
 
       <button
         onClick={() => setShowForm((prev) => !prev)}
         className="mb-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
       >
-        {showForm ? "Batal Tambah Pelanggan" : "Tambah Pelanggan"}
+        {showForm ? "Batal Tambah Sales" : "Tambah Sales"}
       </button>
 
       {showForm && (
@@ -59,7 +60,7 @@ export default function CustomerManagement() {
               value={formData.name}
               onChange={handleInputChange}
               className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
-              placeholder="Nama pelanggan"
+              placeholder="Nama sales"
             />
           </div>
           <div className="mb-2">
@@ -70,7 +71,7 @@ export default function CustomerManagement() {
               value={formData.email}
               onChange={handleInputChange}
               className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
-              placeholder="Email pelanggan"
+              placeholder="Email sales"
             />
           </div>
           <div className="mb-2">
@@ -82,6 +83,17 @@ export default function CustomerManagement() {
               onChange={handleInputChange}
               className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
               placeholder="Nomor telepon"
+            />
+          </div>
+          <div className="mb-2">
+            <label className="block font-medium mb-1">Target Penjualan</label>
+            <input
+              type="number"
+              name="salesTarget"
+              value={formData.salesTarget}
+              onChange={handleInputChange}
+              className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+              placeholder="Target penjualan"
             />
           </div>
           <div className="flex items-center mb-4">
@@ -96,7 +108,7 @@ export default function CustomerManagement() {
             <label htmlFor="activeCheckbox" className="font-medium">Aktif</label>
           </div>
           <button
-            onClick={handleAddCustomer}
+            onClick={handleAddSales}
             className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition"
           >
             Simpan
@@ -111,18 +123,20 @@ export default function CustomerManagement() {
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nama</th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Telepon</th>
+              <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Target Penjualan</th>
               <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
               <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Aksi</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200">
-            {customers.map((cust) => (
-              <tr key={cust.id} className="hover:bg-gray-50">
-                <td className="px-6 py-4 whitespace-nowrap">{cust.name}</td>
-                <td className="px-6 py-4 whitespace-nowrap">{cust.email}</td>
-                <td className="px-6 py-4 whitespace-nowrap">{cust.phone}</td>
+            {sales.map((s) => (
+              <tr key={s.id} className="hover:bg-gray-50">
+                <td className="px-6 py-4 whitespace-nowrap">{s.name}</td>
+                <td className="px-6 py-4 whitespace-nowrap">{s.email}</td>
+                <td className="px-6 py-4 whitespace-nowrap">{s.phone}</td>
+                <td className="px-6 py-4 whitespace-nowrap text-center">{s.salesTarget}</td>
                 <td className="px-6 py-4 whitespace-nowrap text-center">
-                  {cust.active ? (
+                  {s.active ? (
                     <span className="inline-flex px-2 text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                       Aktif
                     </span>
@@ -141,17 +155,17 @@ export default function CustomerManagement() {
                   </button>
                   <button
                     className="text-red-600 hover:text-red-900 font-semibold"
-                    onClick={() => handleDelete(cust.id)}
+                    onClick={() => handleDelete(s.id)}
                   >
                     Hapus
                   </button>
                 </td>
               </tr>
             ))}
-            {customers.length === 0 && (
+            {sales.length === 0 && (
               <tr>
-                <td colSpan={5} className="text-center py-4 text-gray-500">
-                  Tidak ada data pelanggan
+                <td colSpan={6} className="text-center py-4 text-gray-500">
+                  Tidak ada data sales
                 </td>
               </tr>
             )}
@@ -161,4 +175,3 @@ export default function CustomerManagement() {
     </div>
   );
 }
-
