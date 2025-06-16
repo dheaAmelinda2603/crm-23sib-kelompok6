@@ -9,7 +9,7 @@ import FormPenjualan from "./pages/FormPenjualan";
 import TrackingPaket from "./pages/TrackingPaket";
 import Treatment from "./pages/Treatment"; // ✅ nama import disesuaikan
 
-import TrackingPaket from "./pages/TrackingPaket"; // import halaman tracking paket
+
 import TreatmentReviews from "./pages/TreatmentReviews";
 import FlashSale from "./pages/FlashSale";
 import LoyaltyPoint from "./pages/LoyaltyPoint";
