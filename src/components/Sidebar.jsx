@@ -12,24 +12,34 @@ Bell,
   LogIn,
   UserPlus,
   Package,
+
+  Sparkles, // <-- Tambahkan ini untuk ikon Treatment
+
   UserCheck,
+
 } from 'lucide-react'
+
 import { Link, useLocation } from 'react-router-dom'
 
 const menuItems = [
   { name: 'Dashboard', icon: <LayoutDashboard />, path: '/' },
+  { name: 'Treatment', icon: <Sparkles />, path: '/treatment' }, // <-- Ditambahkan
   { name: 'Produk', icon: <Box />, path: '/produk' },
   { name: 'Pelanggan', icon: <User />, path: '/pelanggan' },
   { name: 'FormPenjualan', icon: <List />, path: '/formpenjualan' },
   { name: 'Tracking Paket', icon: <Package />, path: '/tracking-paket' },
+
+
   { name: 'Penjualan', icon: <ShoppingCart />, path: '/penjualan' },
   { name: 'FlashSale', icon: <Bell />, path: '/flashsale' },
   { name: 'LoyaltyPoint', icon: <Star />, path: '/loyaltypoint' },
+
   { name: 'Laporan', icon: <BarChart2 />, path: '/laporan' },
 
   // Tambahan menu baru untuk Ulasan & Rating Treatment
   { name: 'Ulasan & Rating', icon: <List />, path: '/treatment-reviews' },
 ]
+
 
 const accountItems = [
   { name: "Pengaturan Akun", icon: <Settings />, path: "/akun" },
