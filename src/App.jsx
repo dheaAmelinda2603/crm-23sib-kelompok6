@@ -5,16 +5,12 @@ import Sales from "./pages/Sales";
 import CustomerManagement from "./pages/CustomerManagement";
 import CustomerProfileDashboard from "./pages/CustomerProfileDashboard";  // pastikan import ini benar
 import FormPenjualan from "./pages/FormPenjualan";
-<<<<<<< HEAD
-=======
-import TrackingPaket from "./pages/TrackingPaket";
-import Treatment from "./pages/Treatment"; // ✅ nama import disesuaikan
+
 import ManajemenPesanan from "./pages/ManajemenPesanan";
->>>>>>> origin/tika
+
 
 import TrackingPaket from "./pages/TrackingPaket";
 import Treatment from "./pages/Treatment"; // ✅ nama import disesuaikan
-
 
 import TreatmentReviews from "./pages/TreatmentReviews";
 import FlashSale from "./pages/FlashSale";
@@ -34,27 +30,9 @@ function App() {
         <Route path="/customer-profile" element={<CustomerProfileDashboard />} /> {/* route baru */}
         <Route path="/pelanggan" element={<CustomerManagement />} />
         <Route path="/formpenjualan" element={<FormPenjualan />} />
-<<<<<<< HEAD
-
-        <Route path="/tracking-paket" element={<TrackingPaket />} />
-        <Route path="/treatment" element={<Treatment />} /> {/* ✅ path disesuaikan */}
-
-        <Route path="/tracking-paket" element={<TrackingPaket />} /> {/* route tracking paket */}
-        <Route path="/treatment-reviews" element={<TreatmentReviews />} />
-      <Route path="/" element={<Dashboard />} />
-      <Route path="/penjualan" element={<Sales />} />
-<Route path="/flashsale" element={<FlashSale />} />
-<Route path="/loyaltypoint" element={<LoyaltyPoint />} />
-<Route path="/perawatan" element={<Perawatan />} />
-<Route path="/tentang" element={<Tentang />} />
-<Route path="/marketing" element={<Marketing />} />
-
-
-=======
         <Route path="/tracking-paket" element={<TrackingPaket />} />
         <Route path="/treatment" element={<Treatment />} /> {/* ✅ path disesuaikan */}
           <Route path="/Manajemen-Pesanan" element={<ManajemenPesanan />} />
->>>>>>> origin/tika
       </Route>
     </Routes>
   );
