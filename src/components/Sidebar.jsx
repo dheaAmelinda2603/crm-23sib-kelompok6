@@ -23,6 +23,7 @@ const menuItems = [
   { name: 'Laporan', icon: <BarChart2 />, path: '/laporan' },
   { name: 'Perawatan', icon: <BarChart2 />, path: '/perawatan' },
   { name: 'Tentang', icon: <BarChart2 />, path: '/tentang' },
+  { name: 'Marketing', icon: <BarChart2 />, path: '/marketing' },
 
 ]
 

@@ -13,18 +13,18 @@ function Tentang() {
                         Tentang Kami
                     </h2>
                     <p className="text-gray-700 text-lg leading-relaxed mb-6">
-                        Bening's Clinic hadir sebagai solusi terbaik dalam dunia perawatan dan kecantikan.
-                        Kami memberikan layanan premium dengan teknologi terkini dan tenaga ahli profesional.
+                        Bening’s Indonesia pertama kali diluncurkan pada tahun 2021 sebagai merek perawatan kulit hasil kolaborasi antara dokter dan apoteker berpengalaman
+                        di Indonesia. Produk-produk kami telah bersertifikasi BPOM dan Halal, serta dipercaya oleh lebih dari 10.000 BIGpreneur di seluruh Indonesia.
                     </p>
 
                     <p className="text-gray-700 text-lg leading-relaxed mb-4">
-                        Kami percaya bahwa setiap orang berhak tampil percaya diri. Oleh karena itu, kami menawarkan perawatan yang disesuaikan
-                        dengan kebutuhan dan kenyamanan Anda, dari perawatan wajah, tubuh, hingga konsultasi kecantikan.
+                        Tahun 2024, kami memperkenalkan Skinmology Series, lini produk level-up dengan bahan aktif dari Eropa yang telah teruji secara dermatologis,
+                        sebagai komitmen kami menghadirkan inovasi perawatan terbaik.
                     </p>
 
                     <p className="text-gray-700 text-lg leading-relaxed">
-                        Visi kami adalah menjadi pusat perawatan kecantikan terpercaya yang menginspirasi setiap individu untuk mencintai dan merawat dirinya sendiri.
-                        Bersama Bening's, wujudkan versi terbaik dari dirimu!
+                        Melengkapi produk skincare unggulan, Bening’s Clinic hadir sebagai solusi menyeluruh dalam dunia perawatan dan kecantikan. Kami memberikan layanan
+                        premium mulai dari perawatan wajah, tubuh, hingga konsultasi kecantikan, dengan dukungan teknologi terkini dan tenaga ahli profesional.
                     </p>
                 </div>
 
