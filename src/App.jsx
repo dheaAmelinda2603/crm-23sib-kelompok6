@@ -5,13 +5,9 @@ import Sales from "./pages/Sales";
 import CustomerManagement from "./pages/CustomerManagement";
 import CustomerProfileDashboard from "./pages/CustomerProfileDashboard";  // pastikan import ini benar
 import FormPenjualan from "./pages/FormPenjualan";
-
 import ManajemenPesanan from "./pages/ManajemenPesanan";
-
-
 import TrackingPaket from "./pages/TrackingPaket";
 import Treatment from "./pages/Treatment"; // ✅ nama import disesuaikan
-
 import TreatmentReviews from "./pages/TreatmentReviews";
 import FlashSale from "./pages/FlashSale";
 import LoyaltyPoint from "./pages/LoyaltyPoint";
