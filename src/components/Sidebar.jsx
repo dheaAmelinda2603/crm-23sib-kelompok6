@@ -17,6 +17,7 @@ Bell,
 
   UserCheck,
 
+  Sparkles, // <-- Tambahkan ini untuk ikon Treatment
 } from 'lucide-react'
 
 import { Link, useLocation } from 'react-router-dom'
@@ -44,6 +45,8 @@ const menuItems = [
 
   // Tambahan menu baru untuk Ulasan & Rating Treatment
   { name: 'Ulasan & Rating', icon: <List />, path: '/treatment-reviews' },
+  { name: 'Laporan', icon: <BarChart2 />, path: '/laporan' },
+  { name: 'ManajemenPesanan', icon: <ShoppingCart />, path: '/manajemen-pesanan' },
 
 ]
 
