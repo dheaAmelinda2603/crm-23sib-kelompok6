@@ -15,6 +15,7 @@ import FlashSale from "./pages/FlashSale";
 import LoyaltyPoint from "./pages/LoyaltyPoint";
 import Perawatan from "./components/Perawatan";
 import Tentang from "./pages/Tentang";
+import Marketing from "./pages/Marketing";
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
 <Route path="/loyaltypoint" element={<LoyaltyPoint />} />
 <Route path="/perawatan" element={<Perawatan />} />
 <Route path="/tentang" element={<Tentang />} />
+<Route path="/marketing" element={<Marketing />} />
 
 
       </Route>
