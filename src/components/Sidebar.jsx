@@ -8,18 +8,24 @@ import {
   List,
   LogIn,
   UserPlus,
-  Package,  // <-- import icon Package untuk Tracking Paket
+  Package,
+  Sparkles, // <-- Tambahkan ini untuk ikon Treatment
 } from 'lucide-react'
+
 import { Link, useLocation } from 'react-router-dom'
 
 const menuItems = [
   { name: 'Dashboard', icon: <LayoutDashboard />, path: '/' },
+  { name: 'Treatment', icon: <Sparkles />, path: '/treatment' }, // <-- Ditambahkan
   { name: 'Produk', icon: <Box />, path: '/produk' },
   { name: 'Pelanggan', icon: <User />, path: '/pelanggan' },
   { name: 'FormPenjualan', icon: <List />, path: '/formpenjualan' },
-  { name: 'Tracking Paket', icon: <Package />, path: '/tracking-paket' },  // <-- menu baru
+  { name: 'Tracking Paket', icon: <Package />, path: '/tracking-paket' },
   { name: 'Laporan', icon: <BarChart2 />, path: '/laporan' },
+  { name: 'ManajemenPesanan', icon: <ShoppingCart />, path: '/manajemen-pesanan' },
+
 ]
+
 
 const accountItems = [
   { name: 'Pengaturan Akun', icon: <Settings />, path: '/akun' },
