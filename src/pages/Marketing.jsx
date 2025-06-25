@@ -22,6 +22,7 @@ export default function Marketing() {
         <h2
           className="text-3xl font-semibold mb-2 text-[#DEA05B]"
           style={{ fontFamily: "Judson, judson" }}
+          
         >
           On Instagram
         </h2>
