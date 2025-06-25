@@ -9,6 +9,7 @@ import teamBening from '../assets/team-bening.png';
 // Import komponen dari folder pages yang akan menjadi section
 import PerawatanPage from '../components/Perawatan'; // Import Perawatan.jsx
 import TreatmentPage from '../pages/Treatment'; // Import Treatment.jsx
+import Marketing from './Marketing';
 
 
 // --- START: Komponen Placeholder untuk Section Lain (yang belum ada file terpisah) ---
@@ -67,7 +68,7 @@ const Home = () => { // Nama komponen di sini 'Dashboard' dapat diganti menjadi 
       <TreatmentPage />
 
       {/* 5. Section: On Instagram (Ini masih placeholder) */}
-      <InstagramFeedSection />
+      <Marketing />
 
     </div>
   );

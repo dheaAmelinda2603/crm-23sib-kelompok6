@@ -14,6 +14,7 @@ import LoyaltyPoint from "./pages/LoyaltyPoint";
 import Perawatan from "./components/Perawatan";
 import Tentang from "./pages/Tentang";
 import Marketing from "./pages/Marketing";
+import Product from "./pages/Products";
 
 
 function App() {
@@ -21,14 +22,18 @@ function App() {
     <Routes>
       <Route element={<MainLayout />}>
         <Route path="/" element={<Dashboard />} />
+        <Route path="/perawatan" element={<Perawatan />} />
+        <Route path="/marketing" element={<Marketing />} />
         <Route path="/penjualan" element={<Sales />} />
+        <Route path="/tentang" element={<Tentang />} />
         <Route path="/pelanggan" element={<CustomerManagement />} />
         <Route path="/customer-profile" element={<CustomerProfileDashboard />} /> {/* route baru */}
         <Route path="/pelanggan" element={<CustomerManagement />} />
         <Route path="/formpenjualan" element={<FormPenjualan />} />
         <Route path="/tracking-paket" element={<TrackingPaket />} />
         <Route path="/treatment" element={<Treatment />} /> {/* ✅ path disesuaikan */}
-          <Route path="/Manajemen-Pesanan" element={<ManajemenPesanan />} />
+        <Route path="/Manajemen-Pesanan" element={<ManajemenPesanan />} />
+        <Route path="/Products" element={<Product />} />
       </Route>
     </Routes>
   );

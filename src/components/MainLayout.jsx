@@ -150,7 +150,7 @@ export default function MainLayout() {
       </header>
 
       {/* BREADCRUMBS */}
-      <div className="bg-gray-100 border-b border-gray-200">
+      {/* <div className="bg-gray-100 border-b border-gray-200">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-3">
           <p className="text-sm font-medium text-gray-700">
             <NavLink to="/" className="hover:text-orange-500">
@@ -159,7 +159,7 @@ export default function MainLayout() {
             {pageName !== "Home" && ` / ${pageName}`}
           </p>
         </div>
-      </div>
+      </div> */}
 
       {/* KONTEN HALAMAN */}
       <main className="container mx-auto p-4 sm:p-6 lg:p-8">

@@ -7,12 +7,12 @@ import ig6 from "../img/ig6.jpg";
 import ig from "../img/ig.jpg"
 
 const posts = [
-  { image: ig1, link: "https://instagram.com/beningsindonesia" },
-  { image: ig2, link: "https://instagram.com/beningsindonesia" },
-  { image: ig3, link: "https://instagram.com/beningsindonesia" },
-  { image: ig4, link: "https://instagram.com/beningsindonesia" },
-  { image: ig5, link: "https://instagram.com/beningsindonesia" },
-  { image: ig6, link: "https://instagram.com/beningsindonesia" },
+  { image: ig2, link: "https://instagram.com/beningsclinic_pekanbaru" },
+  { image: ig6, link: "https://instagram.com/beningsclinic_pekanbaru" },
+  { image: ig5, link: "https://instagram.com/beningsclinic_pekanbaru" },
+  { image: ig1, link: "https://instagram.com/beningsclinic_pekanbaru" },
+  { image: ig4, link: "https://instagram.com/beningsclinic_pekanbaru" },
+  { image: ig3, link: "https://instagram.com/beningsclinic_pekanbaru" },
 ];
 
 export default function Marketing() {
