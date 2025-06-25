@@ -1,18 +1,18 @@
-import ig1 from "../img/ig1.jpg";
-import ig2 from "../img/ig2.jpg";
+import ig1 from "../img/IG1.jpg";
+import ig2 from "../img/IG2.jpg";
 import ig3 from "../img/ig3.jpg";
 import ig4 from "../img/ig4.jpg";
 import ig5 from "../img/ig5.jpg";
-import ig6 from "../img/ig6.jpg";
+import ig6 from "../img/IG6.jpg";
 import ig from "../img/ig.jpg"
 
 const posts = [
-  { image: ig1, link: "https://instagram.com/beningsindonesia" },
-  { image: ig2, link: "https://instagram.com/beningsindonesia" },
-  { image: ig3, link: "https://instagram.com/beningsindonesia" },
-  { image: ig4, link: "https://instagram.com/beningsindonesia" },
-  { image: ig5, link: "https://instagram.com/beningsindonesia" },
-  { image: ig6, link: "https://instagram.com/beningsindonesia" },
+  { image: ig2, link: "https://instagram.com/beningsclinic_pekanbaru" },
+  { image: ig6, link: "https://instagram.com/beningsclinic_pekanbaru"},
+  { image: ig5, link: "https://instagram.com/beningsclinic_pekanbaru" },
+  { image: ig1, link: "https://instagram.com/beningsclinic_pekanbaru" },
+  { image: ig4, link: "https://instagram.com/beningsclinic_pekanbaru" },
+  { image: ig3, link: "https://instagram.com/beningsclinic_pekanbaru" },
 ];
 
 export default function Marketing() {
