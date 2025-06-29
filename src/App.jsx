@@ -23,6 +23,7 @@ import TreatmentPage from "./pages/TreatmentPage";
 import ProductPage from "./pages/ProdukPage";
 import AdminDashboard from './pages/AdminDashboard';
 import AdminMainLayout from './components/Admin/AdminMainLayout';
+import EventPromoSection from './pages/EventPromo';
 // import ProdukDetail from './pages/ProdukDetail';
 
 function ProdukDetail() {
@@ -64,6 +65,7 @@ function App() {
         <Route path="/marketing" element={<Marketing />} />
         <Route path="/lokasi" element={<Location />} />
         <Route path="/review" element={<Review />} />
+        <Route path="/event" element={<EventPromoSection />} />
         <Route path="/kulitCerah" element={<KulitCerah />} />
         <Route path="/produk/all" element={<ProductPage />} />
         <Route path="/produk" element={<Navigate to="/produk/all?page=1" replace />} />

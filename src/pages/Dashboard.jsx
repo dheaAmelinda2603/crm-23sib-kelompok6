@@ -6,6 +6,7 @@ import TreatmentPage from '../pages/Treatment';
 import Marketing from './Marketing'; 
 import Review from '../pages/Review';
 import KulitCerah from '../pages/KulitCerah';
+import EventPromoSection from './EventPromo';
 
 const Home = () => {
   return (
@@ -63,6 +64,8 @@ const Home = () => {
       <TreatmentPage />
 
       <KulitCerah />
+
+      <EventPromoSection />
 
        <Marketing /> 
 

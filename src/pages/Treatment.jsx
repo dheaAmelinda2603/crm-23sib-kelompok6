@@ -23,15 +23,15 @@ const treatmentSlides = [
   },
   {
     id: 4,
-    title: "Hifu Treatment",
-    description: "Perawatan non-invasif untuk mengencangkan kulit dan mengurangi kerutan dengan menggunakan teknologi ultrasound terfokus.",
-    imageUrl: "https://placehold.co/800x600/DDEEFF/31363F?text=Hifu",
+    title: "Body Peeling (Hand Peeling dan Leg Peeling)",
+    description: "Perawatan eksfoliasi yang efektif untuk mengangkat sel kulit mati pada area tangan dan kaki, membuat kulit terasa lebih halus, cerah, dan meregenerasi kulit baru.", // Corrected description for Body Peeling
+    imageUrl: "https://cdn.orderonline.id/uploads/images_9633671739420731007.png",
   },
   {
     id: 5,
-    title: "PRP Treatment",
-    description: "Platelet-Rich Plasma (PRP) adalah terapi revolusioner yang menggunakan darah Anda sendiri untuk merangsang regenerasi kulit dan rambut.",
-    imageUrl: "https://placehold.co/800x600/FFEEDD/31363F?text=PRP",
+    title: "Chromosome Facial",
+    description: "Perawatan wajah inovatif yang dirancang untuk meremajakan kulit hingga tingkat seluler, meningkatkan elastisitas, kecerahan, dan mengurangi tanda-tua dengan pendekatan bio-regeneratif.", // Corrected description for Chromosome Facial
+    imageUrl: "https://cdn.orderonline.id/uploads/images_2345751739420228859.png",
   },
 ];
 
