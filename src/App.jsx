@@ -26,15 +26,15 @@ import AdminDashboard from './pages/AdminDashboard';
 import AdminMainLayout from './components/Admin/AdminMainLayout';
 // import ProdukDetail from './pages/ProdukDetail';
 
- function ProdukDetail() {
-        const { produkId } = useParams();
-        return (
-            <div className="min-h-screen bg-gray-100 flex items-center justify-center font-sans">
-                <h1 className="text-4xl font-bold text-gray-800">Product Detail Page</h1>
-                <p className="mt-4 text-lg text-gray-600">Details for product: <span className="text-[#DEA05B] font-bold">{produkId}</span></p>
-            </div>
-        );
-    }
+function ProdukDetail() {
+  const { produkId } = useParams();
+  return (
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center font-sans">
+      <h1 className="text-4xl font-bold text-gray-800">Product Detail Page</h1>
+      <p className="mt-4 text-lg text-gray-600">Details for product: <span className="text-[#DEA05B] font-bold">{produkId}</span></p>
+    </div>
+  );
+}
 
 function App() {
   return (
@@ -43,12 +43,11 @@ function App() {
       <Route path="/login" element={<Login />} />
 
       <Route element={<AdminMainLayout />}>
-      <Route path="/dashboard" element={<AdminDashboard />} />
-      <Route path="/penjualan" element={<Sales />} />
-<Route path="/flashsale" element={<FlashSale />} />
-<Route path="/loyaltypoint" element={<LoyaltyPoint />} />
-<Route path="/perawatan" element={<Perawatan />} />
-<Route path="/tentang" element={<Tentang />} />
+        <Route path="/dashboard" element={<AdminDashboard />} />
+        <Route path="/penjualan" element={<Sales />} />
+        <Route path="/flashsale" element={<FlashSale />} />
+        <Route path="/loyaltypoint" element={<LoyaltyPoint />} />
+        <Route path="/perawatan" element={<Perawatan />} />
       </Route>
 
 
@@ -67,7 +66,7 @@ function App() {
         <Route path="/treatment" element={<TreatmentPage />} />
         <Route path="/treatment/all" element={<TreatmentPage />} />
         <Route path="/produk" element={<Navigate to="/treatment/all?page=1" replace />} />
-        <Route path="/produk/:produkId" element={<ProdukDetail/>} />
+        <Route path="/produk/:produkId" element={<ProdukDetail />} />
         <Route path="/penjualan" element={<Sales />} />
         <Route path="/pelanggan" element={<CustomerManagement />} />
         <Route path="/customer-profile" element={<CustomerProfileDashboard />} />
