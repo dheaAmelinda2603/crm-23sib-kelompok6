@@ -1,10 +1,9 @@
-// import { Route, Routes } from "react-router-dom";
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'; // Import Navigate for redirects
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'; 
 import MainLayout from "./components/MainLayout";
 import Dashboard from "./pages/Dashboard";
 import Sales from "./pages/Sales";
 import CustomerManagement from "./pages/CustomerManagement";
-import CustomerProfileDashboard from "./pages/CustomerProfileDashboard";  // pastikan import ini benar
+import CustomerProfileDashboard from "./pages/CustomerProfileDashboard";  
 import FormPenjualan from "./pages/FormPenjualan";
 import ManajemenPesanan from "./pages/ManajemenPesanan";
 import TrackingPaket from "./pages/TrackingPaket";
@@ -47,9 +46,14 @@ function App() {
         <Route path="/penjualan" element={<Sales />} />
         <Route path="/flashsale" element={<FlashSale />} />
         <Route path="/loyaltypoint" element={<LoyaltyPoint />} />
-        <Route path="/perawatan" element={<Perawatan />} />
+        <Route path="/perawatan" element={<Perawatan />} />        
+        <Route path="/pelanggan" element={<CustomerManagement />} />
+        <Route path="/customer-profile" element={<CustomerProfileDashboard />} />
+        <Route path="/formpenjualan" element={<FormPenjualan />} />
+        <Route path="/tracking-paket" element={<TrackingPaket />} />
+        <Route path="/Manajemen-Pesanan" element={<ManajemenPesanan />} />
+        <Route path="/Products" element={<Product />} />
       </Route>
-
 
       {/* Route dengan MainLayout */}
       <Route element={<MainLayout />}>
@@ -67,13 +71,6 @@ function App() {
         <Route path="/treatment/all" element={<TreatmentPage />} />
         <Route path="/produk" element={<Navigate to="/treatment/all?page=1" replace />} />
         <Route path="/produk/:produkId" element={<ProdukDetail />} />
-        <Route path="/penjualan" element={<Sales />} />
-        <Route path="/pelanggan" element={<CustomerManagement />} />
-        <Route path="/customer-profile" element={<CustomerProfileDashboard />} />
-        <Route path="/formpenjualan" element={<FormPenjualan />} />
-        <Route path="/tracking-paket" element={<TrackingPaket />} />
-        <Route path="/Manajemen-Pesanan" element={<ManajemenPesanan />} />
-        <Route path="/Products" element={<Product />} />
       </Route>
     </Routes>
   );
