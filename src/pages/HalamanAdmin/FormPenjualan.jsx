@@ -18,7 +18,6 @@ const dummyPelanggan = [
 ]
 
 const dummyProduk = [
-  // Facial Wajah
   { id: 1, nama: 'Facial Normal', harga: 200000 },
   { id: 2, nama: 'Facial Acne', harga: 250000 },
   { id: 3, nama: 'Facial Antioxidant', harga: 275000 },
@@ -27,13 +26,9 @@ const dummyProduk = [
   { id: 6, nama: 'Facial Whitening', harga: 320000 },
   { id: 7, nama: 'Facial LED', harga: 400000 },
   { id: 8, nama: 'Facial Microdermabrasion', harga: 450000 },
-
-  // Laser Treatment
   { id: 9, nama: 'Laser Proyellow', harga: 800000 },
   { id: 10, nama: 'Laser Q-Switched ND:YAG', harga: 900000 },
   { id: 11, nama: 'Laser Picosure', harga: 1200000 },
-
-  // Perawatan Khusus
   { id: 12, nama: 'Botox', harga: 2500000 },
   { id: 13, nama: 'Rejuran', harga: 3500000 },
   { id: 14, nama: 'Whitening Healer', harga: 3000000 },
@@ -53,7 +48,6 @@ const FormPenjualan = () => {
 
   const [orders, setOrders] = useState([])
 
-  // Update total saat produk atau jumlah berubah
   useEffect(() => {
     const produk = dummyProduk.find((p) => p.id === Number(formData.produkId))
     if (produk) {
@@ -66,7 +60,6 @@ const FormPenjualan = () => {
     }
   }, [formData.produkId, formData.jumlah])
 
-  // Load orders dari localStorage saat awal render
   useEffect(() => {
     const savedOrders = localStorage.getItem('orders')
     if (savedOrders) {
@@ -74,7 +67,6 @@ const FormPenjualan = () => {
     }
   }, [])
 
-  // Simpan orders ke localStorage setiap ada perubahan
   useEffect(() => {
     localStorage.setItem('orders', JSON.stringify(orders))
   }, [orders])
@@ -108,7 +100,6 @@ const FormPenjualan = () => {
 
     setOrders((prev) => [newOrder, ...prev])
 
-    // Reset form (kecuali tanggal)
     setFormData({
       tanggal: formData.tanggal,
       pelangganId: '',
@@ -119,8 +110,10 @@ const FormPenjualan = () => {
   }
 
   return (
-    <div className="p-6 max-w-4xl mx-auto">
-      <h1 className="text-3xl font-bold text-purple-700 mb-6">Form Pemesanan Treatment</h1>
+    <div className="p-6 max-w-4xl mx-auto" style={{ fontFamily: 'Judson, serif' }}>
+      <h1 className="text-3xl font-bold mb-6 text-center" style={{ color: '#DEA05B' }}>
+        Form Pemesanan Treatment
+      </h1>
 
       <form onSubmit={handleSubmit} className="space-y-6 bg-white p-6 rounded-lg shadow-md">
         <div>
@@ -134,7 +127,8 @@ const FormPenjualan = () => {
             value={formData.tanggal}
             onChange={handleChange}
             required
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2"
+            style={{ borderColor: '#DEA05B', focus: { ringColor: '#DEA05B' } }}
           />
         </div>
 
@@ -148,7 +142,8 @@ const FormPenjualan = () => {
             value={formData.pelangganId}
             onChange={handleChange}
             required
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2"
+            style={{ borderColor: '#DEA05B' }}
           >
             <option value="">-- Pilih Pelanggan --</option>
             {dummyPelanggan.map((p) => (
@@ -169,7 +164,8 @@ const FormPenjualan = () => {
             value={formData.produkId}
             onChange={handleChange}
             required
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2"
+            style={{ borderColor: '#DEA05B' }}
           >
             <option value="">-- Pilih Treatment --</option>
             {dummyProduk.map((p) => (
@@ -192,46 +188,52 @@ const FormPenjualan = () => {
             min={1}
             onChange={handleChange}
             required
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2"
+            style={{ borderColor: '#DEA05B' }}
           />
         </div>
 
         <div>
           <label className="block mb-1 font-medium text-gray-700">Total Harga</label>
-          <div className="p-2 bg-gray-100 rounded border border-gray-300">{formatRupiah(formData.total)}</div>
+          <div className="p-2 bg-gray-100 rounded border" style={{ borderColor: '#DEA05B' }}>
+            {formatRupiah(formData.total)}
+          </div>
         </div>
 
         <button
           type="submit"
-          className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 rounded transition"
+          className="w-full text-white font-semibold py-2 rounded transition"
+          style={{ backgroundColor: '#DEA05B' }}
         >
           Simpan Pemesanan
         </button>
       </form>
 
       <section className="mt-10">
-        <h2 className="text-xl font-semibold text-gray-800 mb-4">Daftar Pemesanan</h2>
+        <h2 className="text-xl font-semibold mb-4" style={{ color: '#DEA05B' }}>
+          Daftar Pemesanan
+        </h2>
         {orders.length === 0 ? (
           <p className="text-gray-500">Belum ada pemesanan.</p>
         ) : (
-          <table className="w-full border border-gray-300 rounded-lg overflow-hidden">
-            <thead className="bg-purple-100 text-purple-700 font-semibold">
+          <table className="w-full border rounded-lg overflow-hidden" style={{ borderColor: '#DEA05B' }}>
+            <thead style={{ backgroundColor: '#FFF2E3', color: '#DEA05B' }}>
               <tr>
-                <th className="border border-gray-300 px-4 py-2 text-left">Tanggal</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">Pelanggan</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">Treatment</th>
-                <th className="border border-gray-300 px-4 py-2 text-right">Jumlah</th>
-                <th className="border border-gray-300 px-4 py-2 text-right">Total</th>
+                <th className="border px-4 py-2 text-left">Tanggal</th>
+                <th className="border px-4 py-2 text-left">Pelanggan</th>
+                <th className="border px-4 py-2 text-left">Treatment</th>
+                <th className="border px-4 py-2 text-right">Jumlah</th>
+                <th className="border px-4 py-2 text-right">Total</th>
               </tr>
             </thead>
             <tbody>
               {orders.map((order) => (
                 <tr key={order.id} className="odd:bg-white even:bg-gray-50">
-                  <td className="border border-gray-300 px-4 py-2">{order.tanggal}</td>
-                  <td className="border border-gray-300 px-4 py-2">{order.pelanggan}</td>
-                  <td className="border border-gray-300 px-4 py-2">{order.produk}</td>
-                  <td className="border border-gray-300 px-4 py-2 text-right">{order.jumlah}</td>
-                  <td className="border border-gray-300 px-4 py-2 text-right">{formatRupiah(order.total)}</td>
+                  <td className="border px-4 py-2">{order.tanggal}</td>
+                  <td className="border px-4 py-2">{order.pelanggan}</td>
+                  <td className="border px-4 py-2">{order.produk}</td>
+                  <td className="border px-4 py-2 text-right">{order.jumlah}</td>
+                  <td className="border px-4 py-2 text-right">{formatRupiah(order.total)}</td>
                 </tr>
               ))}
             </tbody>

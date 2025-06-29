@@ -1,16 +1,16 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'; 
 import MainLayout from "./components/MainLayout";
 import Dashboard from "./pages/Dashboard";
-import Sales from "./pages/Sales";
-import CustomerManagement from "./pages/CustomerManagement";
+import Sales from "./pages/HalamanAdmin/Sales";
+import CustomerManagement from "./pages/HalamanAdmin/CustomerManagement";
 import CustomerProfileDashboard from "./pages/CustomerProfileDashboard";  
-import FormPenjualan from "./pages/FormPenjualan";
-import ManajemenPesanan from "./pages/ManajemenPesanan";
-import TrackingPaket from "./pages/TrackingPaket";
+import FormPenjualan from "./pages/HalamanAdmin/FormPenjualan";
+import ManajemenPesanan from "./pages/HalamanAdmin/ManajemenPesanan";
+import TrackingPaket from "./pages/HalamanAdmin/TrackingPaket";
 import Treatment from "./pages/Treatment"; // ✅ nama import disesuaikan
 import TreatmentReviews from "./pages/TreatmentReviews";
-import FlashSale from "./pages/FlashSale";
-import LoyaltyPoint from "./pages/LoyaltyPoint";
+import FlashSale from "./pages/HalamanAdmin/FlashSale";
+import LoyaltyPoint from "./pages/HalamanAdmin/LoyaltyPoint";
 import Perawatan from "./pages/Perawatan";
 import Tentang from "./pages/Tentang";
 import Marketing from "./pages/Marketing";
@@ -54,6 +54,8 @@ function App() {
         <Route path="/tracking-paket" element={<TrackingPaket />} />
         <Route path="/Manajemen-Pesanan" element={<ManajemenPesanan />} />
         <Route path="/Products" element={<Product />} />
+        <Route path="/pelanggan" element={<CustomerManagement />} />
+
       </Route>
 
       {/* Route dengan MainLayout */}

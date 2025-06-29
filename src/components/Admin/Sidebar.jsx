@@ -7,8 +7,10 @@ import {
   BarChart2,       
   Settings,       
   User,
-  Star,            
+  Star,  
+  List,          
   LogIn,
+  Package,
   UserPlus,
 } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
@@ -21,6 +23,14 @@ const menuItems = [
   { name: 'FlashSale', icon: <Bell />, path: '/flashsale' },
   { name: 'LoyaltyPoint', icon: <Star />, path: '/loyaltypoint' },
   { name: 'Laporan', icon: <BarChart2 />, path: '/laporan' },
+  { name: 'ManajemenPesanan', icon: <ShoppingCart />, path: '/manajemen-pesanan' },
+  { name: 'Tracking Paket', icon: <Package />, path: '/tracking-paket' },
+  { name: 'FormPenjualan', icon: <List />, path: '/formpenjualan' },
+  { name: 'customermanagement', icon: <Users/>, path: '/pelanggan' },
+
+
+
+
 ];
 
 // buat fitur-fitur CRM SFA,SA
