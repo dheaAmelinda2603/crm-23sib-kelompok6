@@ -1,4 +1,5 @@
-import { Route, Routes } from "react-router-dom";
+// import { Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'; // Import Navigate for redirects
 import MainLayout from "./components/MainLayout";
 import Dashboard from "./pages/Dashboard";
 import Sales from "./pages/Sales";
@@ -11,27 +12,67 @@ import Treatment from "./pages/Treatment"; // ✅ nama import disesuaikan
 import TreatmentReviews from "./pages/TreatmentReviews";
 import FlashSale from "./pages/FlashSale";
 import LoyaltyPoint from "./pages/LoyaltyPoint";
-import Perawatan from "./components/Perawatan";
+import Perawatan from "./pages/Perawatan";
 import Tentang from "./pages/Tentang";
 import Marketing from "./pages/Marketing";
 import Product from "./pages/Products";
+import Login from "./pages/Login";
+import Location from "./pages/Location";
+import Review from "./pages/Review"
+import KulitCerah from "./pages/KulitCerah";
+import TreatmentPage from "./pages/TreatmentPage";
+import ProductPage from "./pages/ProdukPage";
+import AdminDashboard from './pages/AdminDashboard';
+import AdminMainLayout from './components/Admin/AdminMainLayout';
+// import ProdukDetail from './pages/ProdukDetail';
 
+ function ProdukDetail() {
+        const { produkId } = useParams();
+        return (
+            <div className="min-h-screen bg-gray-100 flex items-center justify-center font-sans">
+                <h1 className="text-4xl font-bold text-gray-800">Product Detail Page</h1>
+                <p className="mt-4 text-lg text-gray-600">Details for product: <span className="text-[#DEA05B] font-bold">{produkId}</span></p>
+            </div>
+        );
+    }
 
 function App() {
   return (
     <Routes>
+      {/* Route khusus untuk halaman login - tanpa MainLayout */}
+      <Route path="/login" element={<Login />} />
+
+      <Route element={<AdminMainLayout />}>
+      <Route path="/dashboard" element={<AdminDashboard />} />
+      <Route path="/penjualan" element={<Sales />} />
+<Route path="/flashsale" element={<FlashSale />} />
+<Route path="/loyaltypoint" element={<LoyaltyPoint />} />
+<Route path="/perawatan" element={<Perawatan />} />
+<Route path="/tentang" element={<Tentang />} />
+      </Route>
+
+
+      {/* Route dengan MainLayout */}
       <Route element={<MainLayout />}>
         <Route path="/" element={<Dashboard />} />
+        <Route path="/tentang" element={<Tentang />} />
+        <Route path="/treatments" element={<Treatment />} />
         <Route path="/perawatan" element={<Perawatan />} />
         <Route path="/marketing" element={<Marketing />} />
+        <Route path="/lokasi" element={<Location />} />
+        <Route path="/review" element={<Review />} />
+        <Route path="/kulitCerah" element={<KulitCerah />} />
+        <Route path="/produk/all" element={<ProductPage />} />
+        <Route path="/produk" element={<Navigate to="/produk/all?page=1" replace />} />
+        <Route path="/treatment" element={<TreatmentPage />} />
+        <Route path="/treatment/all" element={<TreatmentPage />} />
+        <Route path="/produk" element={<Navigate to="/treatment/all?page=1" replace />} />
+        <Route path="/produk/:produkId" element={<ProdukDetail/>} />
         <Route path="/penjualan" element={<Sales />} />
-        <Route path="/tentang" element={<Tentang />} />
         <Route path="/pelanggan" element={<CustomerManagement />} />
-        <Route path="/customer-profile" element={<CustomerProfileDashboard />} /> {/* route baru */}
-        <Route path="/pelanggan" element={<CustomerManagement />} />
+        <Route path="/customer-profile" element={<CustomerProfileDashboard />} />
         <Route path="/formpenjualan" element={<FormPenjualan />} />
         <Route path="/tracking-paket" element={<TrackingPaket />} />
-        <Route path="/treatment" element={<Treatment />} /> {/* ✅ path disesuaikan */}
         <Route path="/Manajemen-Pesanan" element={<ManajemenPesanan />} />
         <Route path="/Products" element={<Product />} />
       </Route>

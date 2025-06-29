@@ -1,77 +1,74 @@
-// src/pages/Home.jsx (Nama file Dashboard.jsx, yang sekarang berfungsi sebagai Home)
-
 import React from 'react';
-
-// Import gambar dari folder src/assets
 import bgGold from '../assets/bg-gold.jpg';
 import teamBening from '../assets/team-bening.png';
+import PerawatanPage from '../pages/Perawatan';
+import TreatmentPage from '../pages/Treatment';
+import Marketing from './Marketing'; 
+import Review from '../pages/Review';
+import KulitCerah from '../pages/KulitCerah';
 
-// Import komponen dari folder pages yang akan menjadi section
-import PerawatanPage from '../components/Perawatan'; // Import Perawatan.jsx
-import TreatmentPage from '../pages/Treatment'; // Import Treatment.jsx
-import Marketing from './Marketing';
-
-
-// --- START: Komponen Placeholder untuk Section Lain (yang belum ada file terpisah) ---
-// IDEALNYA, Pindahkan komponen-komponen ini ke file terpisah di src/components/sections/
-
-
-const InstagramFeedSection = () => {
+const Home = () => {
   return (
-    <section className="bg-white/80 backdrop-blur rounded-xl shadow-xl p-8 my-10 text-center">
-      <h2 className="text-3xl font-bold text-gray-800 mb-8">On Instagram</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {/* Placeholder untuk gambar Instagram feed */}
-        <div className="bg-gray-200 h-64 rounded-lg flex items-center justify-center text-gray-500">Post 1</div>
-        <div className="bg-gray-200 h-64 rounded-lg flex items-center justify-center text-gray-500">Post 2</div>
-        <div className="bg-gray-200 h-64 rounded-lg flex items-center justify-center text-gray-500">Post 3</div>
-        <div className="bg-gray-200 h-64 rounded-lg flex items-center justify-center text-gray-500">Post 4</div>
-      </div>
-      <button className="mt-8 bg-orange-500 text-white px-8 py-3 rounded-full font-semibold hover:bg-orange-600 transition duration-300">
-        Follow Us
-      </button>
-    </section>
-  );
-};
-// --- END: Komponen Placeholder ---
+     <div className="font-judson antialiased text-gray-800">
+        <style>
+            {`
+            @import url('https://fonts.googleapis.com/css2?family=Judson:wght@400;700&display=swap');
 
+            @keyframes fadeInDown {
+                from { opacity: 0; transform: translateY(-20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            @keyframes fadeInUp {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            .animate-fadeInDown { animation: fadeInDown 0.6s ease-out forwards; }
+            .animate-fadeInUp { animation: fadeInUp 0.6s ease-out forwards; }
+            .delay-100 { animation-delay: 0.1s; }
+            .delay-200 { animation-delay: 0.2s; }
+            .delay-300 { animation-delay: 0.3s; }
+            .delay-400 { animation-delay: 0.4s; }
+            .font-judson { font-family: 'Judson', serif; } /* Custom class for Judson font */
+            `}
+        </style>
 
-const Home = () => { // Nama komponen di sini 'Dashboard' dapat diganti menjadi 'Home'
-  return (
-    <div
-      className="min-h-screen bg-cover bg-center p-6 space-y-10"
-      style={{ backgroundImage: `url(${bgGold})` }}
-    >
-      {/* 1. Hero Section (Siap Wujudkan Kulit Impian) */}
-      <div className="bg-white/80 backdrop-blur rounded-xl shadow-xl flex flex-col lg:flex-row items-center p-8">
-        <img
-          src={teamBening}
-          alt="Bening's Team"
-          className="w-full lg:w-1/2 rounded-xl shadow-lg object-cover"
-        />
-        <div className="text-center lg:text-left mt-6 lg:mt-0 lg:ml-10">
-          <h1 className="text-3xl font-bold text-yellow-700 mb-2">Siap Wujudkan Kulit Impian</h1>
-          <p className="text-lg font-semibold text-yellow-500">#MULAIDARIBENING</p>
-          <p className="mt-4 text-gray-700">
-            Selamat datang di Bening’s Clinic, tempat Anda mendapatkan perawatan kulit terbaik dengan layanan profesional dan produk terpercaya.
-          </p>
+      {/* Hero Section: Siap Wujudkan Kulit Impian */}
+      <section className="flex items-center py-12 px-4 sm:px-6 lg:px-8 relative z-0 mt-0" 
+          style={{ backgroundImage: `url(${bgGold})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}>
+        <div className="absolute inset-0 bg-black opacity-10"></div>
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-center lg:justify-between relative z-10 p-6 sm:p-8 bg-white/95 rounded-3xl shadow-2xl space-y-8 lg:space-y-0 lg:space-x-12 border border-gray-100">
+            <div className="lg:w-1/2 flex justify-center order-2 lg:order-1">
+            <img src={teamBening} alt="Bening's Clinic Team" className="w-full max-w-sm sm:max-w-md lg:max-w-full h-auto rounded-2xl shadow-xl object-cover transform transition-transform duration-500 hover:scale-105 border-4 border-[#DEA05B]"
+            onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/800x600/CCCCCC/333333?text=Team+Image"; }}/>
+            </div>
+            <div className="text-center lg:text-left lg:w-1/2 order-1 lg:order-2">
+              <h1 className="text-3xl md:text-5xl font-extrabold text-[#DEA05B] leading-tight mb-2 animate-fadeInDown delay-200">
+                    Siap Wujudkan Kulit Impian Anda
+                </h1>
+                <p className="text-xl sm:text-2xl font-semibold text-amber-600 mb-2 animate-fadeInDown delay-100">
+                    #MULAIDARIBENING
+                </p>
+                <p className="mt-4 text-lg sm:text-xl text-gray-700 leading-relaxed mb-10 animate-fadeInUp delay-300">
+                    Selamat datang di Bening’s Clinic, destinasi terkemuka untuk perawatan kulit profesional. Kami menawarkan layanan terkini dan produk terpercaya untuk membantu Anda mencapai kulit sehat, cerah, dan bercahaya secara optimal.
+                </p>
+                <button className="bg-[#DEA05B] hover:bg-amber-600 text-white font-bold py-4 px-10 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-[#DEA05B] text-lg animate-fadeInUp delay-400"> 
+                    Jelajahi Layanan Kami
+                </button>
+            </div>
         </div>
-      </div>
+      </section>
 
-
-      {/* 3. Section: Layanan Khusus Kami (Menggunakan konten dari Perawatan.jsx) */}
-      {/* PENTING: Pastikan komponen PerawatanPage diekspor sebagai default dari Perawatan.jsx */}
       <PerawatanPage />
 
-      {/* 4. Section: Kulit Sehat & Sehat, Bersama Sentuhan Ahli (Menggunakan konten dari Treatment.jsx) */}
-      {/* PENTING: Pastikan komponen TreatmentPage diekspor sebagai default dari Treatment.jsx */}
       <TreatmentPage />
 
-      {/* 5. Section: On Instagram (Ini masih placeholder) */}
-      <Marketing />
+      <KulitCerah />
 
+       <Marketing /> 
+
+       <Review/>
     </div>
   );
 };
 
-export default Home; // Pastikan Anda juga mengganti nama ekspor jika Anda ingin file ini secara resmi menjadi Home.jsx
+export default Home;
