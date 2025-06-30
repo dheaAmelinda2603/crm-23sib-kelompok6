@@ -29,6 +29,8 @@ import Booking from './pages/HalamanUser/Booking';
 import UserNavbar from './pages/HalamanUser/UserNavbar';
 // import ProdukDetail from './pages/ProdukDetail';
 import ManajemenPesanan from "./pages/HalamanAdmin/ManajemenPesanan";
+import ProductListTable from './pages/HalamanAdmin/ProductList';
+import TreatmentListTable from './pages/HalamanAdmin/TreatmentList';
 
 function ProdukDetail() {
   const { produkId } = useParams();
@@ -58,12 +60,12 @@ function App() {
         <Route path="/penjualan" element={<Sales />} />
         <Route path="/flashsale" element={<FlashSale />} />
         <Route path="/loyaltypoint" element={<LoyaltyPoint />} />
-        <Route path="/perawatan" element={<Perawatan />} />
+        <Route path="/produklist" element={<ProductListTable />} />
+        <Route path="/treatmentlist" element={<TreatmentListTable />} />
         <Route path="/pelanggan" element={<CustomerManagement />} />
         <Route path="/customer-profile" element={<CustomerProfileDashboard />} />
         <Route path="/formpenjualan" element={<FormPenjualan />} />
         <Route path="/tracking-paket" element={<TrackingPaket />} />
-        {/* <Route path="/treatment" element={<Treatment />} /> ✅ path disesuaikan */}
         <Route path="/Manajemen-Pesanan" element={<ManajemenPesanan />} />
       </Route>
 
