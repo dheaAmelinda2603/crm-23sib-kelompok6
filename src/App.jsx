@@ -1,12 +1,9 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'; 
+import { Route, Routes } from "react-router-dom";
 import MainLayout from "./components/MainLayout";
 import Dashboard from "./pages/Dashboard";
-import Sales from "./pages/HalamanAdmin/Sales";
-import CustomerManagement from "./pages/HalamanAdmin/CustomerManagement";
-import CustomerProfileDashboard from "./pages/CustomerProfileDashboard";  
-import FormPenjualan from "./pages/HalamanAdmin/FormPenjualan";
-import ManajemenPesanan from "./pages/HalamanAdmin/ManajemenPesanan";
-import TrackingPaket from "./pages/HalamanAdmin/TrackingPaket";
+import CustomerManagement from "./pages/CustomerManagement";
+import FormPenjualan from "./pages/FormPenjualan";
+import TrackingPaket from "./pages/TrackingPaket";
 import Treatment from "./pages/Treatment"; // ✅ nama import disesuaikan
 import TreatmentReviews from "./pages/TreatmentReviews";
 import FlashSale from "./pages/HalamanAdmin/FlashSale";
@@ -29,19 +26,10 @@ import RiwayatTreatment from './pages/HalamanUser/RiwayatTreatment';
 import Booking from './pages/HalamanUser/Booking';
 import UserNavbar from './pages/HalamanUser/UserNavbar';
 // import ProdukDetail from './pages/ProdukDetail';
+import ManajemenPesanan from "./pages/ManajemenPesanan";
 
-function ProdukDetail() {
-  const { produkId } = useParams();
-  return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center font-sans">
-      <h1 className="text-4xl font-bold text-gray-800">Product Detail Page</h1>
-      <p className="mt-4 text-lg text-gray-600">Details for product: <span className="text-[#DEA05B] font-bold">{produkId}</span></p>
-    </div>
-  );
-}
-
-function App() {
-  return (
+function App(){
+  return(
     <Routes>
       {/* Route khusus tanpa MainLayout */}
       <Route path="/login" element={<Login />} />
@@ -63,29 +51,8 @@ function App() {
         <Route path="/customer-profile" element={<CustomerProfileDashboard />} />
         <Route path="/formpenjualan" element={<FormPenjualan />} />
         <Route path="/tracking-paket" element={<TrackingPaket />} />
-        <Route path="/Manajemen-Pesanan" element={<ManajemenPesanan />} />
-        <Route path="/Products" element={<Product />} />
-        <Route path="/pelanggan" element={<CustomerManagement />} />
-
-      </Route>
-
-      {/* Route dengan MainLayout */}
-      <Route element={<MainLayout />}>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/tentang" element={<Tentang />} />
-        <Route path="/treatments" element={<Treatment />} />
-        <Route path="/perawatan" element={<Perawatan />} />
-        <Route path="/marketing" element={<Marketing />} />
-        <Route path="/lokasi" element={<Location />} />
-        <Route path="/review" element={<Review />} />
-        <Route path="/event" element={<EventPromoSection />} />
-        <Route path="/kulitCerah" element={<KulitCerah />} />
-        <Route path="/produk/all" element={<ProductPage />} />
-        <Route path="/produk" element={<Navigate to="/produk/all?page=1" replace />} />
-        <Route path="/treatment" element={<TreatmentPage />} />
-        <Route path="/treatment/all" element={<TreatmentPage />} />
-        <Route path="/produk" element={<Navigate to="/treatment/all?page=1" replace />} />
-        <Route path="/produk/:produkId" element={<ProdukDetail />} />
+        <Route path="/treatment" element={<Treatment />} /> {/* ✅ path disesuaikan */}
+          <Route path="/Manajemen-Pesanan" element={<ManajemenPesanan />} />
       </Route>
     </Routes>
   );

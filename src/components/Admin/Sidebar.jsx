@@ -20,13 +20,13 @@ const menuItems = [
   { name: 'Dashboard', icon: <LayoutDashboard />, path: '/dashboard' },
   { name: 'Produk', icon: <Box />, path: '/product' },
   { name: 'Penjualan', icon: <ShoppingCart />, path: '/penjualan' },
-  { name: 'FlashSale', icon: <Bell />, path: '/flashsale' },
-  { name: 'LoyaltyPoint', icon: <Star />, path: '/loyaltypoint' },
+  { name: 'Flash Sale', icon: <Bell />, path: '/flashsale' },
+  { name: 'Loyalty Point', icon: <Star />, path: '/loyaltypoint' },
   { name: 'Laporan', icon: <BarChart2 />, path: '/laporan' },
-  { name: 'ManajemenPesanan', icon: <ShoppingCart />, path: '/manajemen-pesanan' },
+  { name: 'Manajemen Pesanan', icon: <ShoppingCart />, path: '/manajemen-pesanan' },
   { name: 'Tracking Paket', icon: <Package />, path: '/tracking-paket' },
   { name: 'FormPenjualan', icon: <List />, path: '/formpenjualan' },
-  { name: 'customermanagement', icon: <Users/>, path: '/pelanggan' },
+  { name: 'Customer Management', icon: <Users/>, path: '/pelanggan' },
 
 ];
 
@@ -34,8 +34,6 @@ const menuItems = [
 
 const accountItems = [
   { name: 'Pengaturan Akun', icon: <Settings />, path: '/akun' },
-  { name: 'Sign In', icon: <LogIn />, path: '/signin' },
-  { name: 'Sign Up', icon: <UserPlus />, path: '/signup' },
 ];
 
 const Sidebar = () => {
