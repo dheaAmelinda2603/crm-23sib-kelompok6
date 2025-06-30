@@ -4,7 +4,7 @@ import Dashboard from "./pages/Dashboard";
 import CustomerManagement from "./pages/CustomerManagement";
 import FormPenjualan from "./pages/FormPenjualan";
 import TrackingPaket from "./pages/TrackingPaket";
-import Treatment from "./pages/Treatment"; // ✅ nama import disesuaikan
+import Treatment from "./pages/Treatment";
 import ManajemenPesanan from "./pages/ManajemenPesanan";
 
 function App(){
