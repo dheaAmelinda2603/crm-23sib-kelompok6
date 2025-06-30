@@ -24,34 +24,27 @@ ChartJS.register(
   Legend
 );
 
-// Define Judson font globally for Chart.js if you want it applied everywhere by default
-// Alternatively, specify it in each chart's options as done below for clarity.
-// ChartJS.defaults.font.family = 'Judson, serif';
 
 const AdminDashboard = () => {
-  // Data summary cards
   const stats = [
-    // Changed 'green' to 'amber' to visually align with #DEA05B
     { label: "Pendapatan Hari Ini", value: "$53,000", percent: "+55%", color: "amber" },
     { label: "Pengguna Hari Ini", value: "2,300", percent: "+3%", color: "blue" },
     { label: "Klien Baru", value: "+3,462", percent: "-2%", color: "red" },
     { label: "Penjualan", value: "$103,430", percent: "+5%", color: "purple" },
   ];
 
-  // Colors derived from #DEA05B for chart consistency
   const primaryColor = '#DEA05B'; // The main gold/amber color
   const darkerPrimaryColor = '#C18F4E'; // A slightly darker shade for borders
   const translucentPrimaryColor = 'rgba(222, 160, 91, 0.3)'; // Translucent for fills
 
-  // Data untuk grafik Penjualan Bulanan (Bar Chart)
   const barData = {
     labels: ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt", "Nov", "Des"],
     datasets: [
       {
         label: "Penjualan (dalam ribuan $)",
         data: [12, 19, 14, 17, 22, 30, 28, 26, 32, 35, 40, 45],
-        backgroundColor: primaryColor, // Changed to #DEA05B
-        borderColor: darkerPrimaryColor, // Added border for better definition
+        backgroundColor: primaryColor, 
+        borderColor: darkerPrimaryColor, 
         borderWidth: 1,
       },
     ],

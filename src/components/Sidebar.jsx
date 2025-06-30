@@ -27,29 +27,16 @@ const menuItems = [
   { name: 'Treatment', icon: <Sparkles />, path: '/treatment' }, // <-- Ditambahkan
   { name: 'Produk', icon: <Box />, path: '/produk' },
   { name: 'Pelanggan', icon: <User />, path: '/pelanggan' },
-  { name: 'FormPenjualan', icon: <List />, path: '/formpenjualan' },
+  { name: 'Form Penjualan', icon: <List />, path: '/formpenjualan' },
   { name: 'Tracking Paket', icon: <Package />, path: '/tracking-paket' },
-
-
   { name: 'Penjualan', icon: <ShoppingCart />, path: '/penjualan' },
-  { name: 'FlashSale', icon: <Bell />, path: '/flashsale' },
-  { name: 'LoyaltyPoint', icon: <Star />, path: '/loyaltypoint' },
-
+  { name: 'Flash Sale', icon: <Bell />, path: '/flashsale' },
+  { name: 'Loyalty Point', icon: <Star />, path: '/loyaltypoint' },
   { name: 'Laporan', icon: <BarChart2 />, path: '/laporan' },
-
-  { name: 'Perawatan', icon: <BarChart2 />, path: '/perawatan' },
-  { name: 'Tentang', icon: <BarChart2 />, path: '/tentang' },
-  { name: 'Marketing', icon: <BarChart2 />, path: '/marketing' },
-
-
-
-  // Tambahan menu baru untuk Ulasan & Rating Treatment
   { name: 'Ulasan & Rating', icon: <List />, path: '/treatment-reviews' },
   { name: 'Laporan', icon: <BarChart2 />, path: '/laporan' },
-  { name: 'ManajemenPesanan', icon: <ShoppingCart />, path: '/manajemen-pesanan' },
-
+  { name: 'Manajemen Pesanan', icon: <ShoppingCart />, path: '/manajemen-pesanan' },
 ]
-
 
 const accountItems = [
   { name: "Pengaturan Akun", icon: <Settings />, path: "/akun" },
