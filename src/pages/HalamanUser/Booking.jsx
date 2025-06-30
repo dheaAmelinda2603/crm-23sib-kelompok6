@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import UserNavbar from './UserNavbar';
 
 const treatmentOptions = [
   "Facial Glow Up",
@@ -24,19 +23,16 @@ const Booking = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     alert(`Berhasil booking treatment untuk ${formData.name}!`);
-    // Di sini nanti bisa ditambahkan integrasi ke backend
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#FFF6EB] to-[#FFEDE1] pt-24 p-6 sm:pt-28 sm:p-10 font-judson">
+    <div className="min-h-screen bg-gradient-to-br from-[#FFF6EB] to-[#FFEDE1] p-6 sm:p-10 font-judson">
       <style>
         {`
         @import url('https://fonts.googleapis.com/css2?family=Judson:wght@400;700&display=swap');
         .font-judson { font-family: 'Judson', serif; }
         `}
       </style>
-
-      <UserNavbar />
 
       <div className="max-w-3xl mx-auto bg-white/80 backdrop-blur-lg rounded-3xl shadow-2xl p-8 sm:p-12 border border-[#f4e2d6]">
         <h1 className="text-4xl sm:text-5xl font-bold text-[#8B5E3C] text-center mb-10 drop-shadow tracking-wide">

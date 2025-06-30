@@ -1,11 +1,15 @@
-import React, { useState } from "react";
-import { Outlet, NavLink, useLocation, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react"; 
+import { Outlet, NavLink, useLocation, useNavigate } from "react-router-dom"; 
 import logo from "../assets/logo.png";
 import { SocialIcon } from 'react-social-icons';
 
 export default function MainLayout() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0); 
+  }, [location.pathname]); 
 
   const navItems = [
     { path: "/", name: "Home" },
@@ -29,7 +33,7 @@ export default function MainLayout() {
   const pageName = getCurrentPageName();
 
   const activeLinkStyle = {
-    color: "#F97316", // oranye
+    color: "#F97316", 
     fontWeight: "600",
     fontFamily: 'Judson, judson'
   };
@@ -37,12 +41,12 @@ export default function MainLayout() {
   const clinicLocation = "Jl Soekarno Hatta / Arengka 1, Kavling No.03/04, Labuh Baru Tim., Payung, Kota Pekanbaru, Riau 28292.";
   const googleMapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(clinicLocation)}`;
   const phoneNumber = "+62 822-8989-3325";
-  const formattedPhoneNumber = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}`; // WhatsApp link
+  const formattedPhoneNumber = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}`; 
 
   const socialLinks = [
     { name: "Instagram", network: "instagram", url: "https://www.instagram.com/beningsclinic_pekanbaru" },
     { name: "TikTok", network: "tiktok", url: "https://www.tiktok.com/@beningsclinic" },
-    { name: "YouTube", network: "youtube", url: "https://www.youtube.com/user/beningsclinic" } // Placeholder YouTube URL
+    { name: "YouTube", network: "youtube", url: "https://www.youtube.com/user/beningsclinic" }
   ];
 
   const navigate = useNavigate();
@@ -114,7 +118,7 @@ export default function MainLayout() {
       {/* FOOTER */}
 <footer className="bg-[#DEA05B] text-white py-12 px-4 mt-8" style={{ fontFamily: 'Judson, judson' }}>
   <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-    {/* Location Section - Left Aligned Content, Center Aligned Title */}
+    {/* Location Section */}
     <div className="flex flex-col items-center md:items-start">
       <h3 className="text-xl font-semibold mb-4 text-white text-center w-full">Lokasi Kami</h3>
       <a href={googleMapsLink} target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-800 transition-colors duration-300 flex items-center justify-center md:justify-start">
@@ -125,7 +129,7 @@ export default function MainLayout() {
       </a>
     </div>
 
-    {/* Social Media Section - Centered Content and Title */}
+    {/* Social Media Section */}
     <div className="flex flex-col items-center md:items-center">
       <h3 className="text-xl font-semibold mb-4 text-white text-center w-full">Ikuti Kami</h3>
       <div className="flex space-x-6">
@@ -140,10 +144,10 @@ export default function MainLayout() {
       </div>
     </div>
 
-    {/* Contact Section - Right Aligned Content, Center Aligned Title (with WhatsApp icon) */}
-     <div className="flex flex-col items-center md:items-center"> {/* Changed md:items-end to md:items-center */}
+    {/* Contact Section */}
+     <div className="flex flex-col items-center md:items-center"> 
       <h3 className="text-xl font-semibold mb-4 text-white w-full text-center">Hubungi Kami</h3>
-      <div className="flex items-center justify-center md:justify-center w-full"> {/* Changed md:justify-end to md:justify-center */}
+      <div className="flex items-center justify-center md:justify-center w-full"> 
         <a href={formattedPhoneNumber} target="_blank"
           rel="noopener noreferrer" className="text-white hover:text-gray-800 transition-colors duration-300 flex items-center">
           <SocialIcon network="whatsapp" url={formattedPhoneNumber}

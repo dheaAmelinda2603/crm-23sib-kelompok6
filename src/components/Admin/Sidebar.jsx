@@ -28,9 +28,6 @@ const menuItems = [
   { name: 'FormPenjualan', icon: <List />, path: '/formpenjualan' },
   { name: 'customermanagement', icon: <Users/>, path: '/pelanggan' },
 
-
-
-
 ];
 
 // buat fitur-fitur CRM SFA,SA

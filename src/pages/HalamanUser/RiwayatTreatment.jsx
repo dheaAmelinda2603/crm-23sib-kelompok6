@@ -1,6 +1,5 @@
 import React from 'react';
 import { FaSpa } from 'react-icons/fa';
-import UserNavbar from './UserNavbar';
 
 const treatmentHistory = [
   {
@@ -35,15 +34,13 @@ const treatmentHistory = [
 
 const RiwayatTreatment = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#FFF6EB] to-[#FFEDE1] pt-24 p-6 sm:pt-28 sm:p-10 font-judson">
+    <div className="min-h-screen bg-gradient-to-br from-[#FFF6EB] to-[#FFEDE1] p-6 sm:p-10 font-judson">
       <style>
         {`
         @import url('https://fonts.googleapis.com/css2?family=Judson:wght@400;700&display=swap');
         .font-judson { font-family: 'Judson', serif; }
         `}
       </style>
-
-      <UserNavbar />
 
       <div className="max-w-5xl mx-auto bg-white/70 backdrop-blur-xl rounded-3xl shadow-2xl p-8 sm:p-12 border border-[#f4e2d6]">
         <h1 className="text-4xl sm:text-5xl font-bold text-center text-[#8B5E3C] mb-10 drop-shadow-sm tracking-wide">
@@ -52,10 +49,8 @@ const RiwayatTreatment = () => {
 
         <div className="space-y-6">
           {treatmentHistory.map((item, index) => (
-            <div
-              key={index}
-              className="group transition-all duration-300 hover:scale-[1.015] hover:shadow-2xl bg-[#FFF8F4] border border-[#f4e2d6] p-6 rounded-2xl flex flex-col sm:flex-row justify-between items-start sm:items-center shadow-md"
-            >
+            <div key={index}
+              className="group transition-all duration-300 hover:scale-[1.015] hover:shadow-2xl bg-[#FFF8F4] border border-[#f4e2d6] p-6 rounded-2xl flex flex-col sm:flex-row justify-between items-start sm:items-center shadow-md" >
               <div className="flex items-center gap-4">
                 <div className="bg-[#DEA05B] text-white rounded-full p-3 shadow-md">
                   <FaSpa className="text-2xl" />

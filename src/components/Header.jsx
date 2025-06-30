@@ -1,15 +1,12 @@
 import { Search, User } from "lucide-react";
-import logo from "../assets/team-bening.png"; // Ganti 'logo.png' dengan nama file yang benar
+import logo from "../assets/team-bening.png"; 
+
 const Header = () => {
   return (
     <header className="flex justify-between items-center px-6 py-4 bg-white shadow-sm border-b sticky top-0 z-10">
       {/* Bagian kiri header: Logo dan Pages / Dashboard */}
-      <div className="flex items-center gap-4"> {/* Menggunakan flex untuk menyusun logo dan teks */}
-        <img
-          src={logo}
-          alt="Logo Bening's Clinic"
-          className="h-8 w-auto object-contain" // Ukuran logo, disesuaikan agar cocok dengan header dashboard
-        />
+      <div className="flex items-center gap-4"> 
+        <img src={logo} alt="Logo Bening's Clinic" className="h-8 w-auto object-contain"  />
         <div className="text-sm text-gray-500">
           Pages / <span className="text-gray-900 font-semibold">Dashboard</span>
         </div>

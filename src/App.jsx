@@ -27,6 +27,7 @@ import EventPromoSection from './pages/EventPromo';
 import UserDashboard from './pages/HalamanUser/UserDashboard';
 import RiwayatTreatment from './pages/HalamanUser/RiwayatTreatment';
 import Booking from './pages/HalamanUser/Booking';
+import UserNavbar from './pages/HalamanUser/UserNavbar';
 // import ProdukDetail from './pages/ProdukDetail';
 
 function ProdukDetail() {
@@ -42,11 +43,15 @@ function ProdukDetail() {
 function App() {
   return (
     <Routes>
-      {/* Route khusus untuk halaman login - tanpa MainLayout */}
+      {/* Route khusus tanpa MainLayout */}
       <Route path="/login" element={<Login />} />
+
+      <Route element={<UserNavbar />}>
       <Route path="/user-dashboard" element={<UserDashboard />} />
       <Route path="/riwayat-treatment" element={<RiwayatTreatment />} />
       <Route path="/booking" element={<Booking />} />
+
+      </Route>
 
       <Route element={<AdminMainLayout />}>
         <Route path="/dashboard" element={<AdminDashboard />} />
