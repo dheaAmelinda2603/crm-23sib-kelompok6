@@ -1,3 +1,4 @@
+
 import {
   LayoutDashboard,
   User,
@@ -6,9 +7,16 @@ import {
   BarChart2,
   Settings,
   List,
+Bell,
+  Star,
   LogIn,
   UserPlus,
   Package,
+
+  Sparkles, // <-- Tambahkan ini untuk ikon Treatment
+
+  UserCheck,
+
   Sparkles, // <-- Tambahkan ini untuk ikon Treatment
 } from 'lucide-react'
 
@@ -21,6 +29,22 @@ const menuItems = [
   { name: 'Pelanggan', icon: <User />, path: '/pelanggan' },
   { name: 'FormPenjualan', icon: <List />, path: '/formpenjualan' },
   { name: 'Tracking Paket', icon: <Package />, path: '/tracking-paket' },
+
+
+  { name: 'Penjualan', icon: <ShoppingCart />, path: '/penjualan' },
+  { name: 'FlashSale', icon: <Bell />, path: '/flashsale' },
+  { name: 'LoyaltyPoint', icon: <Star />, path: '/loyaltypoint' },
+
+  { name: 'Laporan', icon: <BarChart2 />, path: '/laporan' },
+
+  { name: 'Perawatan', icon: <BarChart2 />, path: '/perawatan' },
+  { name: 'Tentang', icon: <BarChart2 />, path: '/tentang' },
+  { name: 'Marketing', icon: <BarChart2 />, path: '/marketing' },
+
+
+
+  // Tambahan menu baru untuk Ulasan & Rating Treatment
+  { name: 'Ulasan & Rating', icon: <List />, path: '/treatment-reviews' },
   { name: 'Laporan', icon: <BarChart2 />, path: '/laporan' },
   { name: 'ManajemenPesanan', icon: <ShoppingCart />, path: '/manajemen-pesanan' },
 
@@ -28,15 +52,24 @@ const menuItems = [
 
 
 const accountItems = [
-  { name: 'Pengaturan Akun', icon: <Settings />, path: '/akun' },
-  { name: 'Sign In', icon: <LogIn />, path: '/signin' },
-  { name: 'Sign Up', icon: <UserPlus />, path: '/signup' },
-]
+  { name: "Pengaturan Akun", icon: <Settings />, path: "/akun" },
+  { name: "Sign In", icon: <LogIn />, path: "/signin" },
+  { name: "Sign Up", icon: <UserPlus />, path: "/signup" },
+];
+
+const specialButton = {
+  name: "Profil Pelanggan",
+  icon: <UserCheck />,
+  path: "/customer-profile",
+};
 
 const Sidebar = () => {
-  const location = useLocation()
+  const location = useLocation();
 
-  const isActive = (path) => location.pathname === path
+  const isActive = (path) => location.pathname === path;
+
+  const baseClass =
+    "flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-purple-100 transition";
 
   return (
     <aside className="bg-white w-64 h-screen shadow-lg px-4 py-6 hidden md:block">
@@ -46,16 +79,27 @@ const Sidebar = () => {
           <Link
             key={item.name}
             to={item.path}
-            className={`flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-purple-100 transition ${
+            className={`${baseClass} ${
               isActive(item.path)
-                ? 'bg-purple-200 text-purple-800 font-semibold'
-                : 'text-gray-700'
+                ? "bg-purple-200 text-purple-800 font-semibold"
+                : "text-gray-700"
             }`}
           >
             <span className="w-5 h-5">{item.icon}</span>
             {item.name}
           </Link>
         ))}
+
+        {/* Button khusus: Profil Pelanggan */}
+        <Link
+          to={specialButton.path}
+          className={`${baseClass} mt-6 border-2 border-purple-600 text-purple-700 font-semibold ${
+            isActive(specialButton.path) ? "bg-purple-200" : ""
+          }`}
+        >
+          <span className="w-5 h-5">{specialButton.icon}</span>
+          {specialButton.name}
+        </Link>
       </nav>
 
       <div className="mt-8 text-xs font-semibold text-gray-500">AKUN</div>
@@ -64,10 +108,10 @@ const Sidebar = () => {
           <Link
             key={item.name}
             to={item.path}
-            className={`flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-purple-100 transition ${
+            className={`${baseClass} ${
               isActive(item.path)
-                ? 'bg-purple-200 text-purple-800 font-semibold'
-                : 'text-gray-700'
+                ? "bg-purple-200 text-purple-800 font-semibold"
+                : "text-gray-700"
             }`}
           >
             <span className="w-5 h-5">{item.icon}</span>
@@ -76,7 +120,7 @@ const Sidebar = () => {
         ))}
       </nav>
     </aside>
-  )
-}
+  );
+};
 
-export default Sidebar
+export default Sidebar;

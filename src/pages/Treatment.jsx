@@ -1,99 +1,144 @@
-import React, { useState } from "react";
-import Facial from "../assets/facial.png";
-import Meso from "../assets/meso.jpg";
+import React, { useState, useEffect, useRef } from 'react';
 import Hifu from "../assets/hifu.jpg";
 import Prp from "../assets/prp.jpg";
-import Proyellow from "../assets/proyellow.jpg";
-import Rejuran from "../assets/rejuran.jpg";
-import Chromosome from "../assets/chromosome.jpg";
 
-const Beranda = () => {
-  const [selectedImage, setSelectedImage] = useState(Facial);
+const treatmentSlides = [
+  {
+    id: 1,
+    title: "Treatment Laser Picosure",
+    description: "Salah satu laser Terbaik, Tercanggih dan Termahal di dunia. Laser ini dapat menghilangkan kerutan halus, pigmentasi, memudarkan flek dan noda jerawat hingga mencerahkan wajah.",
+    imageUrl: "https://benings-clinic.com/wp-content/uploads/2024/02/GAMBAR_TREATMENT_3.png",
+  },
+  {
+    id: 2,
+    title: "Treatment Laser Proyellow",
+    description: "Laser peremajaan kulit terkini yang mampu merawat kulit hingga ke lapisan kulit bagian dalam. Laser ini dapat mengatasi pigmentasi, kulit sensitif, mengembalikan kilau kulit alami hingga mengatasi flek.",
+    imageUrl: "https://benings-clinic.com/wp-content/uploads/2024/02/GAMBAR_TREATMENT_2.png",
+  },
+  {
+    id: 3,
+    title: "Treatment Laser Diode",
+    description: "Laser canggih dan paling sempurna dalam mengatasi jerawat aktif, mengurangi produksi minyak berlebih dan mencerahkan wajah.",
+    imageUrl: "https://benings-clinic.com/wp-content/uploads/2024/02/GAMBAR_TREATMENT_1.png",
+  },
+  {
+    id: 4,
+    title: "Body Peeling (Hand Peeling dan Leg Peeling)",
+    description: "Perawatan eksfoliasi yang efektif untuk mengangkat sel kulit mati pada area tangan dan kaki, membuat kulit terasa lebih halus, cerah, dan meregenerasi kulit baru.", // Corrected description for Body Peeling
+    imageUrl: "https://cdn.orderonline.id/uploads/images_9633671739420731007.png",
+  },
+  {
+    id: 5,
+    title: "Chromosome Facial",
+    description: "Perawatan wajah inovatif yang dirancang untuk meremajakan kulit hingga tingkat seluler, meningkatkan elastisitas, kecerahan, dan mengurangi tanda-tua dengan pendekatan bio-regeneratif.", // Corrected description for Chromosome Facial
+    imageUrl: "https://cdn.orderonline.id/uploads/images_2345751739420228859.png",
+  },
+];
 
-  const treatmentMenus = [
-    { title: "Facial Treatments", image: Facial },
-    { title: "Laser Proyellow", image: Proyellow },
-    { title: "Rejuran Whitening Healer", image: Rejuran },
-    { title: "Chromosome Facial", image: Chromosome },
-  ];
+function Treatment() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const totalSlides = treatmentSlides.length;
+
+  const goToNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % totalSlides);
+  };
+
+  const goToPrevious = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + totalSlides) % totalSlides);
+  };
+
+  useEffect(() => {
+    const interval = setInterval(goToNext, 5000); 
+    return () => clearInterval(interval);
+  }, [currentIndex]); 
+
 
   return (
-    <div className="bg-white">
+    <section className="bg-white py-20 px-4 sm:px-6 lg:px-8" style={{ fontFamily: 'Judson, judson' }}>
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[40%_60%] gap-8 lg:gap-12 items-center">
 
-      {/* Section: Layanan Khusus */}
-      <div className="text-center py-10 px-4 bg-[#f8f4f0]" style={{ fontFamily: 'Judson, Judson' }}>
-        <h2 className="text-2xl font-bold text-gray-800 mb-2">Layanan Khusus Kami</h2>
-        <p className="text-sm text-gray-600 mb-8 max-w-2xl mx-auto">
-          Dapatkan pengalaman kecantikan eksklusif dengan promosi waktu terbatas kami.
-          Temukan jalan menuju kepercayaan diri yang cemerlang. Jelajahi sekarang.
-        </p>
+        {/* Left Section: Text and Controls */}
+        <div className="leftSection flex flex-col justify-center text-center lg:text-left order-2 lg:order-1 h-full py-8 lg:py-0">
+          <h1 className="text-4xl md:text-5xl font-semibold leading-tight mb-4" style={{ color: '#DEA05B' }}>
+            Rekomendasi Treatment
+          </h1>
+          <p className="text-gray-600 text-lg md:text-xl leading-relaxed mb-8">
+            Pilihan treatment terbaik menuju Wajah Bening’s Wajah Indonesia
+          </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 px-4">
-          {[
-            { title: "Facial Treatment", img: Facial },
-            { title: "Mesolipolysis Treatment", img: Meso },
-            { title: "Hifu Treatment", img: Hifu },
-            { title: "PRP Treatment", img: Prp },
-          ].map((item, index) => (
-            <div key={index} className="bg-white shadow rounded-lg overflow-hidden">
-              <img src={item.img} alt={item.title} className="w-full h-44 object-cover" />
-              <div className="p-3 font-medium text-sm text-gray-700">{item.title}</div>
+          <div className="controlContainer flex justify-between items-center w-full mt-auto pt-4"> 
+            {/* Pagination Dots */}
+            <div className="pagination flex space-x-2">
+              {treatmentSlides.map((_, idx) => (
+                <span
+                  key={idx}
+                  className={`block w-3 h-3 rounded-full cursor-pointer transition-colors duration-300 ${
+                    currentIndex === idx ? 'bg-[#DEA05B]' : 'bg-gray-300 hover:bg-gray-400'
+                  }`}
+                  onClick={() => setCurrentIndex(idx)}
+                  aria-label={`Go to slide ${idx + 1}`}
+                ></span>
+              ))}
             </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Section: Kulit Cerah & Sehat */}
-      <div className="bg-white px-6 py-12 text-center" style={{ fontFamily: 'Judson, Judson' }}>
-        <h3 className="text-xl font-bold text-[#D4993E] mb-2">
-          Kulit Cerah & Sehat, Bersama Sentuhan Ahli Bening’s Clinic
-        </h3>
-        <p className="text-sm text-gray-700 max-w-2xl mx-auto mb-10">
-          Tim ahli kami menghadirkan perawatan kulit yang disesuaikan untuk menonjolkan kecantikan alami Anda
-          memberikan hasil nyata yang membuat Anda tampil percaya diri dan segar.
-        </p>
-
-        <div className="grid md:grid-cols-3 gap-8 items-start max-w-5xl mx-auto">
-          {/* Left Menu */}
-          <div className="space-y-4 text-left">
-            {treatmentMenus.map((item, index) => (
+            {/* Navigation Buttons */}
+            <div className="buttonContainer flex gap-4">
               <button
-                key={index}
-                onClick={() => setSelectedImage(item.image)}
-                className="bg-[#d8b3a1] text-white px-4 py-3 rounded-lg w-full text-left hover:bg-[#c99a85]"
+                onClick={goToPrevious}
+                className="prev border border-[#DEA05B] text-[#DEA05B] hover:bg-[#DEA05B] hover:text-white rounded-full h-10 w-10 flex items-center justify-center transition-colors duration-300 shadow-sm"
+                aria-label="Previous slide"
               >
-                {item.title}
+                <span>←</span>
               </button>
+              <button
+                onClick={goToNext}
+                className="next border border-[#DEA05B] text-[#DEA05B] hover:bg-[#DEA05B] hover:text-white rounded-full h-10 w-10 flex items-center justify-center transition-colors duration-300 shadow-sm"
+                aria-label="Next slide"
+              >
+                <span>→</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Right Section: Main Swiper Carousel */}
+        <div className="swiper main-swiper relative w-full h-[350px] md:h-[450px] overflow-hidden rounded-2xl shadow-xl order-1 lg:order-2"> {/* Tinggi responsif */}
+          <div
+            className="swiper-wrapper wrapper flex h-full transition-transform ease-out duration-500"
+            style={{ transform: `translateX(-${currentIndex * 100}%)` }} // Geser 100% untuk setiap slide
+          >
+            {treatmentSlides.map((slide) => (
+              <div
+                key={slide.id}
+                className="swiper-slide slides flex-shrink-0 w-full h-full relative" // Setiap slide mengambil lebar penuh
+              >
+                <div className="content h-full w-full rounded-2xl overflow-hidden relative">
+                  <img
+                    src={slide.imageUrl}
+                    alt={slide.title}
+                    className="absolute inset-0 w-full h-full object-cover rounded-2xl"
+                    onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/800x600/CCCCCC/333333?text=Treatment+Image"; }}
+                  />
+                  {/* Gradient Overlay */}
+                  <div className="gradient absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60 rounded-2xl"></div>
+
+                  {/* Text Content */}
+                  <div className="textContent absolute bottom-4 left-4 right-4 z-20 text-white text-left"> {/* text-white karena background gelap */}
+                    <h2 className="text-xl md:text-2xl font-bold mb-1" style={{ color: '#DEA05B' }}> {/* Warna teks sesuai permintaan */}
+                      {slide.title}
+                    </h2>
+                    <p className="text-sm md:text-base font-normal leading-snug"> {/* Ukuran font dan bobot */}
+                      {slide.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
-
-          {/* Dynamic Image Preview */}
-          <div className="bg-gray-100 h-64 rounded-lg overflow-hidden flex justify-center items-center">
-            <img src={selectedImage} alt="Preview" className="h-full w-full object-cover rounded-lg" />
-          </div>
-
-          {/* Right Info Box */}
-          <div className="bg-[#f7f3ef] rounded-lg p-6 text-left">
-            <h4 className="text-md font-semibold mb-2">
-              Perawatan Wajah untuk Menutrisi dan Meremajakan Kulit
-            </h4>
-            <p className="text-sm text-gray-600 mb-4">
-              Manjakan diri Anda dengan perawatan wajah khusus yang disesuaikan dengan jenis dan masalah kulit unik Anda.
-            </p>
-            <ul className="text-sm list-disc list-inside text-gray-600 space-y-1 mb-4">
-              <li>Pembersihan Mendalam</li>
-              <li>Pengelupasan kulit</li>
-              <li>Meningkatkan Sirkulasi</li>
-              <li>Hidrasi</li>
-            </ul>
-            <button className="bg-[#d8b3a1] hover:bg-[#c99a85] text-white px-4 py-2 rounded">
-              Mulai Sekarang
-            </button>
-          </div>
+          <span className="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
         </div>
       </div>
-    </div>
+    </section>
   );
-};
+}
 
-export default Beranda;
+export default Treatment;

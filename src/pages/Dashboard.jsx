@@ -1,107 +1,77 @@
-import React from 'react'
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  LineElement,
-  PointElement,
-  Title,
-  Tooltip,
-  Legend,
-} from 'chart.js'
-import { Bar, Line } from 'react-chartjs-2'
+import React from 'react';
+import bgGold from '../assets/bg-gold.jpg';
+import teamBening from '../assets/team-bening.png';
+import PerawatanPage from '../pages/Perawatan';
+import TreatmentPage from '../pages/Treatment';
+import Marketing from './Marketing'; 
+import Review from '../pages/Review';
+import KulitCerah from '../pages/KulitCerah';
+import EventPromoSection from './EventPromo';
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  LineElement,
-  PointElement,
-  Title,
-  Tooltip,
-  Legend
-)
-
-const Dashboard = () => {
-  // Data summary cards
-  const stats = [
-    { label: "Pendapatan Hari Ini", value: "$53,000", percent: "+55%", color: "green" },
-    { label: "Pengguna Hari Ini", value: "2,300", percent: "+3%", color: "blue" },
-    { label: "Klien Baru", value: "+3,462", percent: "-2%", color: "red" },
-    { label: "Penjualan", value: "$103,430", percent: "+5%", color: "purple" },
-  ]
-
-  // Data untuk grafik Penjualan Bulanan (Bar Chart)
-  const barData = {
-    labels: ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt", "Nov", "Des"],
-    datasets: [
-      {
-        label: "Penjualan (dalam ribuan $)",
-        data: [12, 19, 14, 17, 22, 30, 28, 26, 32, 35, 40, 45],
-        backgroundColor: "rgba(99, 102, 241, 0.7)", // purple-600
-      },
-    ],
-  }
-
-  const barOptions = {
-    responsive: true,
-    plugins: {
-      legend: { position: 'top' },
-      title: { display: true, text: 'Penjualan Bulanan Tahun Ini' },
-    },
-  }
-
-  // Data untuk grafik Pertumbuhan Pelanggan (Line Chart)
-  const lineData = {
-    labels: ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt", "Nov", "Des"],
-    datasets: [
-      {
-        label: "Jumlah Pelanggan",
-        data: [50, 75, 120, 180, 220, 260, 300, 350, 400, 430, 460, 500],
-        borderColor: "rgba(59, 130, 246, 1)", // blue-500
-        backgroundColor: "rgba(59, 130, 246, 0.3)",
-        fill: true,
-        tension: 0.3,
-        pointRadius: 4,
-      },
-    ],
-  }
-
-  const lineOptions = {
-    responsive: true,
-    plugins: {
-      legend: { position: 'top' },
-      title: { display: true, text: 'Pertumbuhan Pelanggan Tahun Ini' },
-    },
-  }
-
+const Home = () => {
   return (
-    <div className="p-6 space-y-8">
-      {/* Statistik utama */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {stats.map(({ label, value, percent, color }) => (
-          <div key={label} className="bg-white rounded-xl shadow p-5">
-            <p className="text-sm text-gray-500">{label}</p>
-            <h2 className={`text-2xl font-bold text-${color}-600 flex items-center gap-2`}>
-              {value}
-              <span className={`text-xs font-semibold text-${color}-500`}>{percent}</span>
-            </h2>
-          </div>
-        ))}
-      </div>
+     <div className="font-judson antialiased text-gray-800">
+        <style>
+            {`
+            @import url('https://fonts.googleapis.com/css2?family=Judson:wght@400;700&display=swap');
 
-      {/* Grafik Penjualan Bulanan */}
-      <div className="bg-white rounded-xl shadow p-6">
-        <Bar options={barOptions} data={barData} />
-      </div>
+            @keyframes fadeInDown {
+                from { opacity: 0; transform: translateY(-20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            @keyframes fadeInUp {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            .animate-fadeInDown { animation: fadeInDown 0.6s ease-out forwards; }
+            .animate-fadeInUp { animation: fadeInUp 0.6s ease-out forwards; }
+            .delay-100 { animation-delay: 0.1s; }
+            .delay-200 { animation-delay: 0.2s; }
+            .delay-300 { animation-delay: 0.3s; }
+            .delay-400 { animation-delay: 0.4s; }
+            .font-judson { font-family: 'Judson', serif; } /* Custom class for Judson font */
+            `}
+        </style>
 
-      {/* Grafik Pertumbuhan Pelanggan */}
-      <div className="bg-white rounded-xl shadow p-6">
-        <Line options={lineOptions} data={lineData} />
-      </div>
+      {/* Hero Section: Siap Wujudkan Kulit Impian */}
+      <section className="flex items-center py-12 px-4 sm:px-6 lg:px-8 relative z-0 mt-0" 
+          style={{ backgroundImage: `url(${bgGold})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}>
+        <div className="absolute inset-0 bg-black opacity-10"></div>
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-center lg:justify-between relative z-10 p-6 sm:p-8 bg-white/95 rounded-3xl shadow-2xl space-y-8 lg:space-y-0 lg:space-x-12 border border-gray-100">
+            <div className="lg:w-1/2 flex justify-center order-2 lg:order-1">
+            <img src={teamBening} alt="Bening's Clinic Team" className="w-full max-w-sm sm:max-w-md lg:max-w-full h-auto rounded-2xl shadow-xl object-cover transform transition-transform duration-500 hover:scale-105 border-4 border-[#DEA05B]"
+            onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/800x600/CCCCCC/333333?text=Team+Image"; }}/>
+            </div>
+            <div className="text-center lg:text-left lg:w-1/2 order-1 lg:order-2">
+              <h1 className="text-3xl md:text-5xl font-extrabold text-[#DEA05B] leading-tight mb-2 animate-fadeInDown delay-200">
+                    Siap Wujudkan Kulit Impian Anda
+                </h1>
+                <p className="text-xl sm:text-2xl font-semibold text-amber-600 mb-2 animate-fadeInDown delay-100">
+                    #MULAIDARIBENING
+                </p>
+                <p className="mt-4 text-lg sm:text-xl text-gray-700 leading-relaxed mb-10 animate-fadeInUp delay-300">
+                    Selamat datang di Bening’s Clinic, destinasi terkemuka untuk perawatan kulit profesional. Kami menawarkan layanan terkini dan produk terpercaya untuk membantu Anda mencapai kulit sehat, cerah, dan bercahaya secara optimal.
+                </p>
+                <button className="bg-[#DEA05B] hover:bg-amber-600 text-white font-bold py-4 px-10 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-[#DEA05B] text-lg animate-fadeInUp delay-400"> 
+                    Jelajahi Layanan Kami
+                </button>
+            </div>
+        </div>
+      </section>
+
+      <PerawatanPage />
+
+      <TreatmentPage />
+
+      <KulitCerah />
+
+      <EventPromoSection />
+
+       <Marketing /> 
+
+       <Review/>
     </div>
-  )
-}
+  );
+};
 
-export default Dashboard
+export default Home;

@@ -40,12 +40,13 @@ export default function CustomerManagement() {
   };
 
   return (
-    <div className="p-6 max-w-5xl mx-auto">
-      <h1 className="text-2xl font-semibold mb-4">Management Pelanggan</h1>
+    <div className="p-6 max-w-5xl mx-auto" style={{ fontFamily: "Judson, serif" }}>
+      <h1 className="text-2xl font-semibold mb-4">Manajemen Pelanggan</h1>
 
       <button
         onClick={() => setShowForm((prev) => !prev)}
-        className="mb-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+        className="mb-4 px-4 py-2 text-white rounded hover:opacity-90 transition"
+        style={{ backgroundColor: "#DEA05B" }}
       >
         {showForm ? "Batal Tambah Pelanggan" : "Tambah Pelanggan"}
       </button>
@@ -59,7 +60,8 @@ export default function CustomerManagement() {
               name="name"
               value={formData.name}
               onChange={handleInputChange}
-              className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2"
+              style={{ borderColor: "#DEA05B", focus: { ringColor: "#DEA05B" } }}
               placeholder="Nama pelanggan"
             />
           </div>
@@ -70,7 +72,8 @@ export default function CustomerManagement() {
               name="email"
               value={formData.email}
               onChange={handleInputChange}
-              className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2"
+              style={{ borderColor: "#DEA05B" }}
               placeholder="Email pelanggan"
             />
           </div>
@@ -81,7 +84,8 @@ export default function CustomerManagement() {
               name="phone"
               value={formData.phone}
               onChange={handleInputChange}
-              className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2"
+              style={{ borderColor: "#DEA05B" }}
               placeholder="Nomor telepon"
             />
           </div>
@@ -93,12 +97,14 @@ export default function CustomerManagement() {
               onChange={handleInputChange}
               id="activeCheckbox"
               className="mr-2"
+              style={{ accentColor: "#DEA05B" }}
             />
             <label htmlFor="activeCheckbox" className="font-medium">Aktif</label>
           </div>
           <button
             onClick={handleAddCustomer}
-            className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition"
+            className="px-4 py-2 text-white rounded hover:opacity-90 transition"
+            style={{ backgroundColor: "#DEA05B" }}
           >
             Simpan
           </button>
@@ -124,7 +130,7 @@ export default function CustomerManagement() {
                 <td className="px-6 py-4 whitespace-nowrap">{cust.phone}</td>
                 <td className="px-6 py-4 whitespace-nowrap text-center">
                   {cust.active ? (
-                    <span className="inline-flex px-2 text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                    <span className="inline-flex px-2 text-xs leading-5 font-semibold rounded-full" style={{ backgroundColor: "#DEA05B", color: "white" }}>
                       Aktif
                     </span>
                   ) : (
@@ -135,13 +141,15 @@ export default function CustomerManagement() {
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-center space-x-2">
                   <button
-                    className="text-blue-600 hover:text-blue-900 font-semibold"
+                    className="font-semibold"
+                    style={{ color: "#DEA05B" }}
                     onClick={() => alert("Fitur Edit belum tersedia")}
                   >
                     Edit
                   </button>
                   <button
-                    className="text-red-600 hover:text-red-900 font-semibold"
+                    className="font-semibold"
+                    style={{ color: "#DEA05B" }}
                     onClick={() => handleDelete(cust.id)}
                   >
                     Hapus
@@ -162,4 +170,3 @@ export default function CustomerManagement() {
     </div>
   );
 }
-
