@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Logo from "../assets/logo.png"; 
+import { useNavigate, Link } from 'react-router-dom'; // Import Link
+import Logo from "../assets/logo.png";
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState(''); 
+  const [error, setError] = useState('');
 
   const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
-    setError(''); 
+    setError('');
 
     console.log('Login attempt:', { email, password });
 
@@ -26,7 +26,7 @@ function Login() {
     }
 
     localStorage.setItem('userRole', userRole);
-    localStorage.setItem('userLoggedIn', 'true'); 
+    localStorage.setItem('userLoggedIn', 'true');
 
     if (userRole === 'admin') {
       console.log('Login successful! Navigating to /admin/dashboard...');
@@ -68,19 +68,17 @@ function Login() {
       </style>
 
       <div className="bg-white p-8 rounded-lg shadow-xl w-full max-w-md">
-        {/* Logo Section */}
         <div className="flex justify-center mb-6">
-            <img src={Logo} alt="Company Logo" className="h-20 w-auto" 
-                onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/80x80/DEA05B/FFFFFF?text=LOGO"; }} 
-            />
+            <Link to="/">
+                <img src={Logo} alt="Company Logo" className="h-20 w-auto"
+                    onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/80x80/DEA05B/FFFFFF?text=LOGO"; }}
+                />
+            </Link>
         </div>
 
-        {/* Header Section */}
         <h1 className="text-3xl font-bold text-gray-900 mb-8 text-center">Welcome back!</h1>
 
-        {/* Login Form */}
         <form onSubmit={handleLogin}>
-          {/* Email Input */}
           <div className="mb-6">
             <label htmlFor="email" className="block text-gray-800 text-lg font-medium mb-2">
               Email address
@@ -96,7 +94,6 @@ function Login() {
             />
           </div>
 
-          {/* Password Input */}
           <div className="mb-6 relative">
             <label htmlFor="password" className="block text-gray-800 text-lg font-medium mb-2">
               Password
@@ -115,12 +112,10 @@ function Login() {
             </a>
           </div>
 
-          {/* Error Message */}
           {error && (
             <p className="text-red-500 text-sm mb-4 text-center">{error}</p>
           )}
 
-          {/* Login Button */}
           <button
             type="submit"
             className="w-full bg-[#DEA05B] text-white font-bold py-3 rounded-lg shadow-md hover:bg-amber-600 transition-colors duration-300 mb-6">
@@ -134,25 +129,21 @@ function Login() {
           <hr className="flex-grow border-t border-gray-300" />
         </div>
 
-        {/* Social Login Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 mb-8">
-          {/* Google Sign In */}
           <button className="flex-1 flex items-center justify-center bg-white border border-gray-300 py-3 px-4 rounded-lg shadow-sm hover:bg-gray-50 transition-colors duration-300 text-gray-700 font-medium"
             onClick={handleGoogleSignIn} >
             <img src="https://www.google.com/favicon.ico" alt="Google logo" className="h-5 w-5 mr-3" />
             Sign in with Google
           </button>
 
-          {/* Apple Sign In */}
           <button className="flex-1 flex items-center justify-center bg-white border border-gray-300 py-3 px-4 rounded-lg shadow-sm hover:bg-gray-50 transition-colors duration-300 text-gray-700 font-medium"
             onClick={handleAppleSignIn} >
-            <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple logo" className="h-5 w-5 mr-3" 
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple logo" className="h-5 w-5 mr-3"
               onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/20x20/000000/FFFFFF?text=A"; }} />
             Sign in with Apple
           </button>
         </div>
 
-        {/* Don't have an account? */}
         <p className="text-center text-gray-700">
           Don't have an account?{' '}
           <a href="#" className="text-[#DEA05B] hover:underline font-semibold" onClick={handleSignUp}>
