@@ -24,6 +24,9 @@ import ProductPage from "./pages/ProdukPage";
 import AdminDashboard from './pages/AdminDashboard';
 import AdminMainLayout from './components/Admin/AdminMainLayout';
 import EventPromoSection from './pages/EventPromo';
+import UserDashboard from './pages/HalamanUser/UserDashboard';
+import RiwayatTreatment from './pages/HalamanUser/RiwayatTreatment';
+import Booking from './pages/HalamanUser/Booking';
 // import ProdukDetail from './pages/ProdukDetail';
 
 function ProdukDetail() {
@@ -41,6 +44,9 @@ function App() {
     <Routes>
       {/* Route khusus untuk halaman login - tanpa MainLayout */}
       <Route path="/login" element={<Login />} />
+      <Route path="/user-dashboard" element={<UserDashboard />} />
+      <Route path="/riwayat-treatment" element={<RiwayatTreatment />} />
+      <Route path="/booking" element={<Booking />} />
 
       <Route element={<AdminMainLayout />}>
         <Route path="/dashboard" element={<AdminDashboard />} />
