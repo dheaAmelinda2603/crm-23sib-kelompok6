@@ -74,9 +74,7 @@ export default function MainLayout() {
               ))}
             </nav>
             <div className="hidden md:block">
-              <button
-                onClick={handleSignInClick}
-                className="bg-amber-600 text-white font-bold px-6 py-2 rounded-md hover:bg-amber-700 transition-colors duration-300 shadow-sm">
+              <button onClick={handleSignInClick} className="bg-amber-600 text-white font-bold px-6 py-2 rounded-md hover:bg-amber-700 transition-colors duration-300 shadow-sm">
                 SIGN IN
               </button>
             </div>
@@ -101,9 +99,7 @@ export default function MainLayout() {
                   {item.name}
                 </NavLink>
               ))}
-              <button
-                onClick={handleSignInClick}
-                className="w-full mt-2 bg-amber-600 text-white font-bold px-6 py-2 rounded-md hover:bg-amber-700 transition-colors duration-300 shadow-sm">
+              <button onClick={handleSignInClick} className="w-full mt-2 bg-amber-600 text-white font-bold px-6 py-2 rounded-md hover:bg-amber-700 transition-colors duration-300 shadow-sm">
                 SIGN IN
               </button>
             </div>
@@ -134,11 +130,8 @@ export default function MainLayout() {
       <h3 className="text-xl font-semibold mb-4 text-white text-center w-full">Ikuti Kami</h3>
       <div className="flex space-x-6">
         {socialLinks.map((social) => (
-          <a key={social.name} href={social.url} target="_blank"
-            rel="noopener noreferrer" className="transition-transform duration-300 hover:scale-110"
-            aria-label={social.name}>
-            <SocialIcon network={social.network} url={social.url}
-              fgColor="white" bgColor="transparent" style={{ height: 48, width: 48 }} />
+          <a key={social.name} href={social.url} target="_blank" rel="noopener noreferrer" className="transition-transform duration-300 hover:scale-110" aria-label={social.name}>
+            <SocialIcon network={social.network} url={social.url} fgColor="white" bgColor="transparent" style={{ height: 48, width: 48 }} />
           </a>
         ))}
       </div>
@@ -148,10 +141,8 @@ export default function MainLayout() {
      <div className="flex flex-col items-center md:items-center"> 
       <h3 className="text-xl font-semibold mb-4 text-white w-full text-center">Hubungi Kami</h3>
       <div className="flex items-center justify-center md:justify-center w-full"> 
-        <a href={formattedPhoneNumber} target="_blank"
-          rel="noopener noreferrer" className="text-white hover:text-gray-800 transition-colors duration-300 flex items-center">
-          <SocialIcon network="whatsapp" url={formattedPhoneNumber}
-            fgColor="white" bgColor="transparent" style={{ height: 48, width: 48, marginRight: '8px' }} />
+        <a href={formattedPhoneNumber} target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-800 transition-colors duration-300 flex items-center">
+          <SocialIcon network="whatsapp" url={formattedPhoneNumber} fgColor="white" bgColor="transparent" style={{ height: 48, width: 48, marginRight: '8px' }} />
           {phoneNumber}
         </a>
       </div>

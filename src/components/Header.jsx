@@ -15,11 +15,7 @@ const Header = () => {
       {/* Bagian kanan header: Search dan Sign In */}
       <div className="flex items-center gap-4">
         <div className="relative">
-          <input
-            type="text"
-            placeholder="Type here..."
-            className="px-4 py-2 pl-10 text-sm border rounded-full focus:outline-none"
-          />
+          <input type="text" placeholder="Type here..." className="px-4 py-2 pl-10 text-sm border rounded-full focus:outline-none"/>
           <Search className="absolute left-3 top-2.5 w-4 h-4 text-gray-400" />
         </div>
         <div className="flex items-center gap-2 text-sm cursor-pointer text-gray-700 hover:text-purple-700">

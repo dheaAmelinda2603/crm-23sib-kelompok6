@@ -79,15 +79,9 @@ const Sidebar = () => {
             )}
             <div className="space-y-1">
               {section.items.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.path}
-                  className={`flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-amber-100 transition ${
-                    isActive(item.path)
-                      ? 'bg-amber-200 text-amber-800 font-semibold'
-                      : 'text-gray-700'
-                  }`}
-                >
+                <Link key={item.name} to={item.path} className={`flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-amber-100 transition ${
+                    isActive(item.path) ? 'bg-amber-200 text-amber-800 font-semibold' : 'text-gray-700'
+                  }`}>
                   <span className="w-5 h-5">{item.icon}</span>
                   {item.name}
                 </Link>
@@ -99,7 +93,6 @@ const Sidebar = () => {
           </div>
         ))}
       </nav>
-
     </aside>
   );
 };

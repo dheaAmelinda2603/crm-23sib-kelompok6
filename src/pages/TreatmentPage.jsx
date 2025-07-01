@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Search, SlidersHorizontal, ArrowDownWideNarrow, ChevronRight } from 'lucide-react'; // Importing icons
+import { Search, SlidersHorizontal, ArrowDownWideNarrow, ChevronRight } from 'lucide-react'; 
 
-// Utility function for formatting numbers with thousand separators
 const formatNumberWithThousandsSeparator = (value) => {
     const cleanValue = String(value).replace(/\D/g, '');
     if (!cleanValue) return '';
@@ -11,7 +10,6 @@ const formatNumberWithThousandsSeparator = (value) => {
     return numberValue.toLocaleString('id-ID');
 };
 
-// Mock treatment data
 const allTreatments = [
   { id: 'benings-acne-whitening-facial', name: 'Bening’s Acne / Whitening Facial', price: 'Rp 250.000', imageUrl: 'https://cdn.orderonline.id/uploads/images_1672631739347635523.png', category: 'Kecantikan', collection: 'Perawatan Wajah', transaction_count: 50, created_at: '2023-01-01T12:00:00Z', seen: 150 },
   { id: 'korean-toning-acne-combo-facial', name: 'Korean Toning / Acne Combo Facial', price: 'Rp 500.000', imageUrl: 'https://cdn.orderonline.id/uploads/images_9389081739418855609.png', category: 'Kecantikan', collection: 'Perawatan Wajah', transaction_count: 75, created_at: '2023-01-05T12:00:00Z', seen: 200 },
@@ -34,19 +32,14 @@ const allTreatments = [
   { id: 'laser-co2-erbium-laser-acne-scar', name: 'Laser CO2 / Erbium Laser - Acne Scar', price: 'Rp 750.000', imageUrl: 'https://cdn.orderonline.id/uploads/images_3992451739436157133.png', category: 'Kecantikan', collection: 'Perawatan Wajah', transaction_count: 32, created_at: '2023-03-30T12:00:00Z', seen: 100 },
   { id: 'laser-co2-erbium-laser-skintag', name: 'Laser CO2 / Erbium Laser - Skintag', price: 'Rp 100.000', imageUrl: 'https://cdn.orderonline.id/uploads/images_7167331739436186354.png', category: 'Kecantikan', collection: 'Perawatan Wajah', transaction_count: 95, created_at: '2023-04-05T12:00:00Z', seen: 280 },
   { id: 'ipl-hair-removal-kumis-janggut', name: 'IPL Hair Removal (Kumis/Janggut)', price: 'Rp 150.000', imageUrl: 'https://cdn.orderonline.id/img/default-product.png', category: 'Kecantikan', collection: 'Perawatan Wajah', transaction_count: 100, created_at: '2023-04-10T12:00:00Z', seen: 320 },
-  // Additional treatments for widgets
   { id: 'picofront-laser', name: 'Picofront Laser', price: 'Rp 3.000.000', imageUrl: 'https://cdn.orderonline.id/uploads/images_4791251739437189080.png', category: 'Kecantikan', collection: 'Perawatan Wajah', transaction_count: 200, created_at: '2023-04-15T12:00:00Z', seen: 500 },
   { id: 'proyellow-laser-complete', name: 'Proyellow Laser Complete', price: 'Rp 1.000.000', imageUrl: 'https://cdn.orderonline.id/uploads/images_2060761739437229655.png', category: 'Kecantikan', collection: 'Perawatan Wajah', transaction_count: 180, created_at: '2023-04-20T12:00:00Z', seen: 450 },
   { id: 'prp-wajah', name: 'PRP Wajah', price: 'Rp 750.000', imageUrl: 'https://cdn.orderonline.id/uploads/images_3055371739437498490.png', category: 'Kecantikan', collection: 'Perawatan Wajah', transaction_count: 160, created_at: '2023-04-25T12:00:00Z', seen: 420 },
 ];
 
-// Individual Treatment Card Component
-const TreatmentCard = ({ treatment }) => ( // Changed from ProductCard
-    <Link to={`/products/${treatment.id}`} className="treatment-item orientation-square group"> {/* Changed from product-item */}
+const TreatmentCard = ({ treatment }) => ( 
+    <Link to={`/products/${treatment.id}`} className="treatment-item orientation-square group"> 
         <div className="product-item-top list-product-item relative overflow-hidden">
-            {/* {treatment.isSale && ( // Assuming treatments might not have 'isSale' but leaving for potential future use
-                <span className="treatment-label sale absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-md z-10 font-judson">sale</span>
-            )} */}
             <img
                 src={treatment.imageUrl}
                 loading="lazy"
@@ -65,7 +58,7 @@ const TreatmentCard = ({ treatment }) => ( // Changed from ProductCard
                 </div>
             </div>
         </div>
-        <div className="treatment-item-hover absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"> {/* Changed from product-item-hover */}
+        <div className="treatment-item-hover absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"> 
             <div className="product-item-hover-action flex space-x-2">
                 <Link to={`/products/${treatment.id}`} title="Lihat Detail" className="btn btn-outline-default p-2 rounded-full bg-white text-gray-700 hover:bg-[#DEA05B] hover:text-white transition-colors duration-200">
                     <ChevronRight size={20} />
@@ -76,7 +69,7 @@ const TreatmentCard = ({ treatment }) => ( // Changed from ProductCard
 );
 
 // Treatment Sidebar Filters Component
-const TreatmentSidebar = ({ searchKeyword, onSearchChange, minPrice, maxPrice, onMinPriceChange, onMaxPriceChange, onFilterPrice }) => { // Changed from ProductSidebar
+const TreatmentSidebar = ({ searchKeyword, onSearchChange, minPrice, maxPrice, onMinPriceChange, onMaxPriceChange, onFilterPrice }) => { 
     const collections = [
         { name: 'Semua Koleksi', path: '/collections/all' },
         { name: 'Perawatan Wajah', path: '/collections/perawatan-wajah' },
@@ -97,13 +90,13 @@ const TreatmentSidebar = ({ searchKeyword, onSearchChange, minPrice, maxPrice, o
     };
 
     return (
-        <div className="treatment-sidebar-wrapper space-y-4"> {/* Changed from product-sidebar-wrapper */}
+        <div className="treatment-sidebar-wrapper space-y-4">
 
             {/* Kategori */}
             <div className="bg-white rounded-xl shadow-md p-4 hidden lg:block">
-                <div className="treatment-sidebar-header text-xl font-bold text-gray-800 mb-3 font-judson">Kategori Treatment</div> {/* Changed from Kategori */}
+                <div className="treatment-sidebar-header text-xl font-bold text-gray-800 mb-3 font-judson">Kategori Treatment</div> 
                 <div className="body mt-2">
-                    <ul className="treatment-categories-menu space-y-2"> {/* Changed from product-categories-menu */}
+                    <ul className="treatment-categories-menu space-y-2"> 
                         {categories.map(category => (
                             <li key={category.path}>
                                 <Link
@@ -165,15 +158,14 @@ const TreatmentSidebar = ({ searchKeyword, onSearchChange, minPrice, maxPrice, o
     );
 };
 
-// Treatment Widget Component (for Terbaru, Terlaris, Popular)
-const TreatmentWidget = ({ title, treatments, link, sortType }) => ( // Changed from ProductWidget and products to treatments
+const TreatmentWidget = ({ title, treatments, link, sortType }) => ( 
     <div className="bg-white rounded-xl shadow-md p-4">
         <div className="widget-header flex justify-between items-center mb-4">
             <div className="widget-title text-xl font-bold text-gray-800 font-judson">{title}</div>
             <div className="widget-icon"></div>
         </div>
         <div className="widget-body space-y-4">
-            {treatments.map(treatment => ( // Changed from products.map(product =>
+            {treatments.map(treatment => ( 
                 <Link to={`/products/${treatment.id}`} key={treatment.id} className="block group">
                     <div className="flex items-center space-x-3">
                         <div className="w-1/4 flex-shrink-0">
@@ -185,10 +177,10 @@ const TreatmentWidget = ({ title, treatments, link, sortType }) => ( // Changed 
                             />
                         </div>
                         <div className="flex-1 pt-1">
-                            <div title={treatment.name} className="treatment-item-title text-gray-800 text-base font-medium line-clamp-2 group-hover:text-[#DEA05B] transition-colors font-judson"> {/* Changed from product-item-title */}
+                            <div title={treatment.name} className="treatment-item-title text-gray-800 text-base font-medium line-clamp-2 group-hover:text-[#DEA05B] transition-colors font-judson"> 
                                 {treatment.name}
                             </div>
-                            <div className="treatment-item-price mt-1 text-[#DEA05B] text-lg font-bold font-judson"> {/* Changed from product-item-price */}
+                            <div className="treatment-item-price mt-1 text-[#DEA05B] text-lg font-bold font-judson"> 
                                 {treatment.price}
                             </div>
                         </div>
@@ -206,7 +198,7 @@ const TreatmentWidget = ({ title, treatments, link, sortType }) => ( // Changed 
 
 
 const TreatmentPage = () => {
-  const treatmentsPerPage = 21; // Changed from productsPerPage
+  const treatmentsPerPage = 21; 
   const [currentPage, setCurrentPage] = useState(1);
   const [searchKeyword, setSearchKeyword] = useState('');
   const [minPrice, setMinPrice] = useState('');
@@ -218,20 +210,20 @@ const TreatmentPage = () => {
     return parseInt(cleaned) || 0;
   };
 
-  const getFilteredAndSortedTreatments = () => { // Changed from getFilteredAndSortedProducts
-    let filteredTreatments = allTreatments.filter(treatment => { // Changed from allProducts.filter(product =>
-      const treatmentNameMatches = treatment.name.toLowerCase().includes(searchKeyword.toLowerCase()); // Changed from productNameMatches
+  const getFilteredAndSortedTreatments = () => { 
+    let filteredTreatments = allTreatments.filter(treatment => { 
+      const treatmentNameMatches = treatment.name.toLowerCase().includes(searchKeyword.toLowerCase()); 
 
-      const treatmentPrice = parsePrice(treatment.price); // Changed from productPrice
+      const treatmentPrice = parsePrice(treatment.price); 
       const min = minPrice ? parsePrice(minPrice) : 0;
       const max = maxPrice ? parsePrice(maxPrice) : Infinity;
 
-      const priceMatches = treatmentPrice >= min && treatmentPrice <= max; // Changed from priceMatches
+      const priceMatches = treatmentPrice >= min && treatmentPrice <= max; 
 
-      return treatmentNameMatches && priceMatches; // Changed from productNameMatches && priceMatches
+      return treatmentNameMatches && priceMatches; 
     });
 
-    filteredTreatments.sort((a, b) => { // Changed from filteredProducts.sort
+    filteredTreatments.sort((a, b) => { 
       if (sortOrder === 'transaction_count') {
         return b.transaction_count - a.transaction_count;
       } else if (sortOrder === 'created_at') {
@@ -247,17 +239,15 @@ const TreatmentPage = () => {
     return filteredTreatments;
   };
 
-  const currentTreatments = getFilteredAndSortedTreatments(); // Changed from currentProducts
-  const totalPages = Math.ceil(currentTreatments.length / treatmentsPerPage); // Changed from currentProducts.length / productsPerPage
-  const startIndex = (currentPage - 1) * treatmentsPerPage; // Changed from productsPerPage
-  const endIndex = startIndex + treatmentsPerPage; // Changed from productsPerPage
-  const displayedTreatments = currentTreatments.slice(startIndex, endIndex); // Changed from displayedProducts
+  const currentTreatments = getFilteredAndSortedTreatments(); 
+  const totalPages = Math.ceil(currentTreatments.length / treatmentsPerPage); 
+  const startIndex = (currentPage - 1) * treatmentsPerPage; 
+  const endIndex = startIndex + treatmentsPerPage; 
+  const displayedTreatments = currentTreatments.slice(startIndex, endIndex); 
 
-  // Widget Treatments
-  const latestTreatments = allTreatments.slice().sort((a, b) => new Date(b.created_at) - new Date(a.created_at)).slice(0, 3); // Changed from latestProducts
-  const bestSellingTreatments = allTreatments.slice().sort((a, b) => b.transaction_count - a.transaction_count).slice(0, 3); // Changed from bestSellingProducts
-  const popularTreatments = allTreatments.slice().sort((a, b) => b.seen - a.seen).slice(0, 3); // Changed from popularProducts
-
+  const latestTreatments = allTreatments.slice().sort((a, b) => new Date(b.created_at) - new Date(a.created_at)).slice(0, 3); 
+  const bestSellingTreatments = allTreatments.slice().sort((a, b) => b.transaction_count - a.transaction_count).slice(0, 3); 
+  const popularTreatments = allTreatments.slice().sort((a, b) => b.seen - a.seen).slice(0, 3); 
 
   const handleSearchChange = (e) => {
     setSearchKeyword(e.target.value);

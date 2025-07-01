@@ -49,14 +49,12 @@ const allProductsData = [
     { id: 45, 'title': 'Skinmology Paket Total Brightening', price: 'Rp 500.000', imageUrl: 'https://cdn.orderonline.id/uploads/images_3770111737448107567.png', isSale: true, originalPrice: 'Rp 750.000', category: 'Kecantikan', subCategory: 'Perawatan Wajah', subSubCategory: 'Paket Perawatan Wajah', collection: 'SKINMOLOGY', transaction_count: 65, created_at: '2024-07-13T17:00:00Z', seen: 210, description: "<p>Experience total skin transformation with Skinmology Paket Total Brightening. This ultimate set is dedicated to achieving a remarkably luminous and even-toned complexion.</p><p><strong>Benefits:</strong> Intensive brightening, reduces all forms of discoloration, and provides an unparalleled glow.</p><p><strong>Directions:</strong> Use as a complete regimen for maximum brightening effects.</p>" }
 ];
 
-
-const ITEMS_PER_PAGE = 10; // Number of products to show per page
+const ITEMS_PER_PAGE = 10; 
 
 const ProductListTable = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState('');
 
-  // Filter products based on search term
   const filteredProducts = useMemo(() => {
     if (!searchTerm) {
       return allProductsData;
@@ -70,24 +68,20 @@ const ProductListTable = () => {
     );
   }, [searchTerm]);
 
-  // Calculate total pages
   const totalPages = Math.ceil(filteredProducts.length / ITEMS_PER_PAGE);
 
-  // Get products for the current page
   const currentProducts = useMemo(() => {
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
     const endIndex = startIndex + ITEMS_PER_PAGE;
     return filteredProducts.slice(startIndex, endIndex);
   }, [currentPage, filteredProducts]);
 
-  // Handle page change
   const goToPage = (page) => {
     if (page >= 1 && page <= totalPages) {
       setCurrentPage(page);
     }
   };
 
-  // Helper function to format date
   const formatDate = (isoString) => {
     if (!isoString) return '';
     const date = new Date(isoString);
@@ -108,21 +102,13 @@ const ProductListTable = () => {
         `}
       </style>
 
-      {/* Applied text-[#DEA05B] */}
       <h2 className="text-2xl font-bold text-gray-800 mb-6 text-[#DEA05B]">Daftar Produk</h2>
 
-      {/* Search Input - removed font-sans to inherit font-judson */}
+      {/* Search Input */}
       <div className="mb-4 relative max-w-sm">
-        <input
-          type="text"
-          placeholder="Cari produk..."
+        <input type="text" placeholder="Cari produk..."
           className="w-full px-4 py-2 pl-10 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-amber-400"
-          value={searchTerm}
-          onChange={(e) => {
-            setSearchTerm(e.target.value);
-            setCurrentPage(1); // Reset to first page on new search
-          }}
-        />
+          value={searchTerm} onChange={(e) => { setSearchTerm(e.target.value); setCurrentPage(1);  }}/>
         <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
       </div>
 
@@ -169,13 +155,11 @@ const ProductListTable = () => {
                     <span className="font-semibold">{product.price}</span>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    {/* Applied text-[#DEA05B] to icon and number */}
                     <div className="flex items-center gap-1 text-[#DEA05B]">
                       <ShoppingCart className="w-4 h-4" /> {product.transaction_count}
                     </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    {/* Applied text-[#DEA05B] to icon and number */}
                     <div className="flex items-center gap-1 text-[#DEA05B]">
                       <Eye className="w-4 h-4" /> {product.seen}
                     </div>
@@ -209,32 +193,21 @@ const ProductListTable = () => {
           {Math.min(currentPage * ITEMS_PER_PAGE, filteredProducts.length)} dari {filteredProducts.length} produk
         </span>
         <nav className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
-          <button
-            onClick={() => goToPage(currentPage - 1)}
-            disabled={currentPage === 1}
-            className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
-          >
+          <button onClick={() => goToPage(currentPage - 1)} disabled={currentPage === 1}
+            className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed" >
             <span className="sr-only">Previous</span>
             <ChevronLeft className="h-5 w-5" aria-hidden="true" />
           </button>
           {[...Array(totalPages)].map((_, index) => (
-            <button
-              key={index}
-              onClick={() => goToPage(index + 1)}
-              className={`relative inline-flex items-center px-4 py-2 border text-sm font-medium ${
-                currentPage === index + 1
-                  ? 'z-10 bg-amber-100 border-[#DEA05B] text-[#DEA05B]' // Changed border and text to DEA05B
+            <button key={index} onClick={() => goToPage(index + 1)} className={`relative inline-flex items-center px-4 py-2 border text-sm font-medium ${
+                currentPage === index + 1 ? 'z-10 bg-amber-100 border-[#DEA05B] text-[#DEA05B]'
                   : 'bg-white border-gray-300 text-gray-700 hover:bg-gray-50'
-              }`}
-            >
+              }`}>
               {index + 1}
             </button>
           ))}
-          <button
-            onClick={() => goToPage(currentPage + 1)}
-            disabled={currentPage === totalPages}
-            className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
-          >
+          <button onClick={() => goToPage(currentPage + 1)} disabled={currentPage === totalPages}
+            className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed" >
             <span className="sr-only">Next</span>
             <ChevronRight className="h-5 w-5" aria-hidden="true" />
           </button>

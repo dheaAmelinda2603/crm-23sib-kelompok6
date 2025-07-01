@@ -70,14 +70,12 @@ function Treatment() {
             {/* Pagination Dots */}
             <div className="pagination flex space-x-2">
               {treatmentSlides.map((_, idx) => (
-                <span
-                  key={idx}
+                <span key={idx}
                   className={`block w-3 h-3 rounded-full cursor-pointer transition-colors duration-300 ${
                     currentIndex === idx ? 'bg-[#DEA05B]' : 'bg-gray-300 hover:bg-gray-400'
                   }`}
                   onClick={() => setCurrentIndex(idx)}
-                  aria-label={`Go to slide ${idx + 1}`}
-                ></span>
+                  aria-label={`Go to slide ${idx + 1}`}></span>
               ))}
             </div>
             {/* Navigation Buttons */}
@@ -85,31 +83,29 @@ function Treatment() {
               <button
                 onClick={goToPrevious}
                 className="prev border border-[#DEA05B] text-[#DEA05B] hover:bg-[#DEA05B] hover:text-white rounded-full h-10 w-10 flex items-center justify-center transition-colors duration-300 shadow-sm"
-                aria-label="Previous slide"
-              >
+                aria-label="Previous slide" >
                 <span>←</span>
               </button>
               <button
                 onClick={goToNext}
                 className="next border border-[#DEA05B] text-[#DEA05B] hover:bg-[#DEA05B] hover:text-white rounded-full h-10 w-10 flex items-center justify-center transition-colors duration-300 shadow-sm"
-                aria-label="Next slide"
-              >
+                aria-label="Next slide" >
                 <span>→</span>
               </button>
             </div>
           </div>
         </div>
 
-        {/* Right Section: Main Swiper Carousel */}
-        <div className="swiper main-swiper relative w-full h-[350px] md:h-[450px] overflow-hidden rounded-2xl shadow-xl order-1 lg:order-2"> {/* Tinggi responsif */}
+   
+        <div className="swiper main-swiper relative w-full h-[350px] md:h-[450px] overflow-hidden rounded-2xl shadow-xl order-1 lg:order-2">
           <div
             className="swiper-wrapper wrapper flex h-full transition-transform ease-out duration-500"
-            style={{ transform: `translateX(-${currentIndex * 100}%)` }} // Geser 100% untuk setiap slide
+            style={{ transform: `translateX(-${currentIndex * 100}%)` }} 
           >
             {treatmentSlides.map((slide) => (
               <div
                 key={slide.id}
-                className="swiper-slide slides flex-shrink-0 w-full h-full relative" // Setiap slide mengambil lebar penuh
+                className="swiper-slide slides flex-shrink-0 w-full h-full relative" 
               >
                 <div className="content h-full w-full rounded-2xl overflow-hidden relative">
                   <img
@@ -122,11 +118,11 @@ function Treatment() {
                   <div className="gradient absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60 rounded-2xl"></div>
 
                   {/* Text Content */}
-                  <div className="textContent absolute bottom-4 left-4 right-4 z-20 text-white text-left"> {/* text-white karena background gelap */}
-                    <h2 className="text-xl md:text-2xl font-bold mb-1" style={{ color: '#DEA05B' }}> {/* Warna teks sesuai permintaan */}
+                  <div className="textContent absolute bottom-4 left-4 right-4 z-20 text-white text-left"> 
+                    <h2 className="text-xl md:text-2xl font-bold mb-1" style={{ color: '#DEA05B' }}> 
                       {slide.title}
                     </h2>
-                    <p className="text-sm md:text-base font-normal leading-snug"> {/* Ukuran font dan bobot */}
+                    <p className="text-sm md:text-base font-normal leading-snug"> 
                       {slide.description}
                     </p>
                   </div>

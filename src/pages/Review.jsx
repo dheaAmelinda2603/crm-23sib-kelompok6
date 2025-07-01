@@ -5,42 +5,42 @@ const testimonials = [
     id: 1,
     name: "Putri Anggraini",
     feedback: "Perawatan di Bening's Clinic sangat luar biasa! Kulit saya terasa lebih sehat dan cerah. Sangat puas dengan hasilnya, bahkan setelah beberapa kunjungan. Setiap detail diperhatikan dengan seksama.",
-    avatarUrl: "https://placehold.co/100x100/ADD8E6/FFFFFF?text=PA", // Placeholder avatar
+    avatarUrl: "https://placehold.co/100x100/ADD8E6/FFFFFF?text=PA", 
     rating: 5,
   },
   {
     id: 2,
     name: "Rizky Firmansyah",
     feedback: "Tempatnya nyaman dan stafnya sangat profesional. Selalu betah setiap kali perawatan. Sangat direkomendasikan untuk pria juga yang peduli dengan kesehatan kulit mereka!",
-    avatarUrl: "https://placehold.co/100x100/FFD700/333333?text=RF", // Placeholder avatar
+    avatarUrl: "https://placehold.co/100x100/FFD700/333333?text=RF",
     rating: 5,
   },
   {
     id: 3,
     name: "Dewi Lestari",
     feedback: "Produk-produk Bening's sangat efektif dan aman untuk kulit sensitif saya. Kulit saya kini jauh lebih baik dan tidak ada lagi iritasi. Terima kasih banyak atas rekomendasi terbaiknya!",
-    avatarUrl: "https://placehold.co/100x100/C0C0C0/FFFFFF?text=DL", // Placeholder avatar
+    avatarUrl: "https://placehold.co/100x100/C0C0C0/FFFFFF?text=DL", 
     rating: 4,
   },
   {
     id: 4,
     name: "Joko Santoso",
     feedback: "Konsultasi yang mendalam dan solusi yang tepat sasaran. Saya melihat peningkatan signifikan setelah beberapa sesi perawatan. Mereka benar-benar mengerti kebutuhan kulit saya.",
-    avatarUrl: "https://placehold.co/100x100/FFB6C1/333333?text=JS", // Placeholder avatar
+    avatarUrl: "https://placehold.co/100x100/FFB6C1/333333?text=JS", 
     rating: 5,
   },
   {
     id: 5,
     name: "Lina Marlina",
     feedback: "Pelayanan yang ramah dan cepat. Perawatan wajahnya membuat saya merasa segar dan muda kembali. Pasti akan jadi langganan setia di Bening's Clinic!",
-    avatarUrl: "https://placehold.co/100x100/B0E0E6/333333?text=LM", // Placeholder avatar
+    avatarUrl: "https://placehold.co/100x100/B0E0E6/333333?text=LM", 
     rating: 4,
   },
   {
     id: 6,
     name: "Faisal Rahman",
     feedback: "Klinik ini punya teknologi canggih dan hasilnya sesuai ekspektasi. Sangat cocok bagi yang mencari perawatan kulit serius dengan hasil yang nyata.",
-    avatarUrl: "https://placehold.co/100x100/DAA520/FFFFFF?text=FR", // Placeholder avatar
+    avatarUrl: "https://placehold.co/100x100/DAA520/FFFFFF?text=FR", 
     rating: 5,
   },
 ];
@@ -65,19 +65,19 @@ function Review() {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 1280) { // xl breakpoint: 2.5 kartu
+      if (window.innerWidth >= 1280) { 
         setCardsPerView(2.5);
-      } else if (window.innerWidth >= 1024) { // lg breakpoint: 2 kartu
+      } else if (window.innerWidth >= 1024) { 
         setCardsPerView(2);
-      } else if (window.innerWidth >= 768) { // md breakpoint: 1.5 kartu
+      } else if (window.innerWidth >= 768) { 
         setCardsPerView(1.5);
-      } else { // sm dan xs: 1 kartu
+      } else { 
         setCardsPerView(1);
       }
     };
 
     window.addEventListener('resize', handleResize);
-    handleResize(); // Setel nilai awal
+    handleResize(); 
 
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -137,15 +137,16 @@ function Review() {
         {/* Tombol Navigasi */}
         {currentIndex > 0 && (
           <button onClick={goToPrevious} className="absolute left-0 top-1/2 -translate-y-1/2 bg-white p-3 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-200 z-10 focus:outline-none focus:ring-2 focus:ring-[#DEA05B]" aria-label="Testimonial sebelumnya" >
-            <svg className="h-6 w-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path></svg>
+            <svg className="h-6 w-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7">
+              </path></svg>
           </button>
         )}
         {currentIndex < maxIndex && (
-          <button
-            onClick={goToNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 bg-white p-3 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-200 z-10 focus:outline-none focus:ring-2 focus:ring-[#DEA05B]"
+          <button onClick={goToNext} className="absolute right-0 top-1/2 -translate-y-1/2 bg-white p-3 rounded-full shadow-md hover:bg-gray-100 transition-colors duration-200 z-10 focus:outline-none focus:ring-2 focus:ring-[#DEA05B]"
             aria-label="Testimonial berikutnya">
-            <svg className="h-6 w-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
+            <svg className="h-6 w-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7">
+              </path>
+              </svg>
           </button>
         )}
       </div>

@@ -12,19 +12,15 @@ Bell,
   LogIn,
   UserPlus,
   Package,
-
-  Sparkles, // <-- Tambahkan ini untuk ikon Treatment
-
   UserCheck,
-
-  Sparkles, // <-- Tambahkan ini untuk ikon Treatment
+  Sparkles, 
 } from 'lucide-react'
 
 import { Link, useLocation } from 'react-router-dom'
 
 const menuItems = [
   { name: 'Dashboard', icon: <LayoutDashboard />, path: '/' },
-  { name: 'Treatment', icon: <Sparkles />, path: '/treatment' }, // <-- Ditambahkan
+  { name: 'Treatment', icon: <Sparkles />, path: '/treatment' }, 
   { name: 'Produk', icon: <Box />, path: '/produk' },
   { name: 'Pelanggan', icon: <User />, path: '/pelanggan' },
   { name: 'Form Penjualan', icon: <List />, path: '/formpenjualan' },
@@ -82,8 +78,7 @@ const Sidebar = () => {
           to={specialButton.path}
           className={`${baseClass} mt-6 border-2 border-purple-600 text-purple-700 font-semibold ${
             isActive(specialButton.path) ? "bg-purple-200" : ""
-          }`}
-        >
+          }`}>
           <span className="w-5 h-5">{specialButton.icon}</span>
           {specialButton.name}
         </Link>

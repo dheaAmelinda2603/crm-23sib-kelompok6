@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Star } from "lucide-react";
 
 export default function TreatmentReviews() {
-  // Contoh data awal ulasan
   const [reviews, setReviews] = useState([
     {
       id: 1,
@@ -29,7 +28,6 @@ export default function TreatmentReviews() {
     comment: "",
   });
 
-  // Fungsi untuk menampilkan bintang sesuai rating
   const renderStars = (count) => {
     const stars = [];
     for (let i = 1; i <= 5; i++) {
@@ -45,13 +43,11 @@ export default function TreatmentReviews() {
     return stars;
   };
 
-  // Handler input perubahan form
   const handleChange = (e) => {
     const { name, value } = e.target;
     setNewReview((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Handler submit form ulasan baru
   const handleSubmit = (e) => {
     e.preventDefault();
     if (
@@ -105,13 +101,8 @@ export default function TreatmentReviews() {
         </div>
         <div>
           <label className="block mb-1 font-semibold">Rating:</label>
-          <select
-            name="rating"
-            value={newReview.rating}
-            onChange={handleChange}
-            className="border border-gray-300 rounded px-3 py-2 focus:outline-pink-500"
-            required
-          >
+          <select name="rating" value={newReview.rating}  onChange={handleChange}
+            className="border border-gray-300 rounded px-3 py-2 focus:outline-pink-500" required >
             <option value={0}>Pilih rating</option>
             {[1, 2, 3, 4, 5].map((n) => (
               <option key={n} value={n}>
@@ -131,10 +122,7 @@ export default function TreatmentReviews() {
             required
           />
         </div>
-        <button
-          type="submit"
-          className="bg-pink-600 text-white px-6 py-2 rounded hover:bg-pink-700 transition"
-        >
+        <button type="submit" className="bg-pink-600 text-white px-6 py-2 rounded hover:bg-pink-700 transition" >
           Kirim Ulasan
         </button>
       </form>
@@ -143,10 +131,7 @@ export default function TreatmentReviews() {
       <div className="space-y-6">
         {reviews.length === 0 && <p className="text-gray-500">Belum ada ulasan.</p>}
         {reviews.map((review) => (
-          <div
-            key={review.id}
-            className="border border-gray-200 rounded p-4 shadow-sm hover:shadow-md transition"
-          >
+          <div key={review.id} className="border border-gray-200 rounded p-4 shadow-sm hover:shadow-md transition" >
             <div className="flex justify-between items-center mb-2">
               <h3 className="font-semibold text-lg">{review.name}</h3>
               <div className="flex items-center">{renderStars(review.rating)}</div>

@@ -1,46 +1,59 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'; 
-import MainLayout from "./components/MainLayout";
-import Dashboard from "./pages/Dashboard";
+
+//Mainlayout Admin
+import AdminMainLayout from './components/Admin/AdminMainLayout';
+
+//Halaman Admin
 import CustomerManagement from "./pages/HalamanAdmin/CustomerManagement";
 import FormPenjualan from "./pages/HalamanAdmin/FormPenjualan";
 import TrackingPaket from "./pages/HalamanAdmin/TrackingPaket";
-import Treatment from "./pages/Treatment"; // ✅ nama import disesuaikan
-import TreatmentReviews from "./pages/TreatmentReviews";
-import FlashSale from "./pages/HalamanAdmin/FlashSale";
-import Sales from "./pages/HalamanAdmin/Sales";
-import CustomerProfileDashboard from "./pages/CustomerProfileDashboard"; 
 import LoyaltyPoint from "./pages/HalamanAdmin/LoyaltyPoint";
-import Perawatan from "./pages/Perawatan";
-import Tentang from "./pages/Tentang";
-import Marketing from "./pages/Marketing";
-import Product from "./pages/Products";
-import Login from "./pages/Login";
-import Location from "./pages/Location";
-import Review from "./pages/Review"
-import KulitCerah from "./pages/KulitCerah";
-import TreatmentPage from "./pages/TreatmentPage";
-import ProductPage from "./pages/ProdukPage";
-import AdminDashboard from './pages/AdminDashboard';
-import AdminMainLayout from './components/Admin/AdminMainLayout';
-import EventPromoSection from './pages/EventPromo';
+import AdminDashboard from './pages/HalamanAdmin/AdminDashboard';
+import ManajemenPesanan from "./pages/HalamanAdmin/ManajemenPesanan";
+import ProductListTable from './pages/HalamanAdmin/ProductList';
+import TreatmentListTable from './pages/HalamanAdmin/TreatmentList';
+import Sales from "./pages/HalamanAdmin/Sales";
+import FlashSale from "./pages/HalamanAdmin/FlashSale";
+
+//Halaman User
 import UserDashboard from './pages/HalamanUser/UserDashboard';
 import RiwayatTreatment from './pages/HalamanUser/RiwayatTreatment';
 import Booking from './pages/HalamanUser/Booking';
 import UserNavbar from './pages/HalamanUser/UserNavbar';
-// import ProdukDetail from './pages/ProdukDetail';
-import ManajemenPesanan from "./pages/HalamanAdmin/ManajemenPesanan";
-import ProductListTable from './pages/HalamanAdmin/ProductList';
-import TreatmentListTable from './pages/HalamanAdmin/TreatmentList';
 
-function ProdukDetail() {
-  const { produkId } = useParams();
-  return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center font-sans">
-      <h1 className="text-4xl font-bold text-gray-800">Product Detail Page</h1>More actions
-      <p className="mt-4 text-lg text-gray-600">Details for product: <span className="text-[#DEA05B] font-bold">{produkId}</span></p>
-    </div>
-  );
-}
+import CustomerProfileDashboard from "./pages/CustomerProfileDashboard"; 
+
+//Mainlayout 
+import MainLayout from "./components/MainLayout";
+
+//Halaman Home
+import Login from "./pages/Login";
+
+import Dashboard from "./pages/Dashboard";
+import Treatment from "./pages/Treatment"; 
+import Perawatan from "./pages/Perawatan";
+import KulitCerah from "./pages/KulitCerah";
+import EventPromoSection from './pages/EventPromo';
+import Marketing from "./pages/Marketing";
+import Review from "./pages/Review"
+import Tentang from "./pages/Tentang";
+import ProductPage from "./pages/ProdukPage";
+import TreatmentPage from "./pages/TreatmentPage";
+import Location from "./pages/Location";
+
+import ProdukDetail from './pages/ProdukDetail';
+import TreatmentReviews from "./pages/TreatmentReviews";
+import Product from "./pages/Products";
+
+// function ProdukDetail() {
+//   const { produkId } = useParams();
+//   return (
+//     <div className="min-h-screen bg-gray-100 flex items-center justify-center font-sans">
+//       <h1 className="text-4xl font-bold text-gray-800">Product Detail Page</h1>More actions
+//       <p className="mt-4 text-lg text-gray-600">Details for product: <span className="text-[#DEA05B] font-bold">{produkId}</span></p>
+//     </div>
+//   );
+// }
 
 
 function App() {
@@ -49,12 +62,14 @@ function App() {
       {/* Route khusus tanpa MainLayout */}
       <Route path="/login" element={<Login />} />
 
+      {/* Route khusus User */}
       <Route element={<UserNavbar />}>
         <Route path="/user-dashboard" element={<UserDashboard />} />
         <Route path="/riwayat-treatment" element={<RiwayatTreatment />} />
         <Route path="/booking" element={<Booking />} />
       </Route>
 
+      {/* Route khusus Admin */}
       <Route element={<AdminMainLayout />}>
         <Route path="/dashboard" element={<AdminDashboard />} />
         <Route path="/penjualan" element={<Sales />} />
@@ -82,10 +97,11 @@ function App() {
         <Route path="/kulitCerah" element={<KulitCerah />} />
         <Route path="/produk/all" element={<ProductPage />} />
         <Route path="/produk" element={<Navigate to="/produk/all?page=1" replace />} />
-        <Route path="/treatment" element={<TreatmentPage />} />
-        <Route path="/treatment/all" element={<TreatmentPage />} />
-        <Route path="/produk" element={<Navigate to="/treatment/all?page=1" replace />} />
         <Route path="/produk/:produkId" element={<ProdukDetail />} />
+        <Route path="/treatment" element={<TreatmentPage />} />
+        <Route path="/treatment" element={<Navigate to="/treatment/all?page=1" replace />} />
+        <Route path="/treatment/all" element={<TreatmentPage />} />
+
       </Route>
 
     </Routes>
