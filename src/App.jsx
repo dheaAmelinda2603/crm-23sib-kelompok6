@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'; 
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
 //Mainlayout Admin
 import AdminMainLayout from './components/Admin/AdminMainLayout';
@@ -21,7 +21,7 @@ import RiwayatTreatment from './pages/HalamanUser/RiwayatTreatment';
 import Booking from './pages/HalamanUser/Booking';
 import UserNavbar from './pages/HalamanUser/UserNavbar';
 
-import CustomerProfileDashboard from "./pages/CustomerProfileDashboard"; 
+import CustomerProfileDashboard from "./pages/CustomerProfileDashboard";
 
 //Mainlayout 
 import MainLayout from "./components/MainLayout";
@@ -30,7 +30,7 @@ import MainLayout from "./components/MainLayout";
 import Login from "./pages/Login";
 
 import Dashboard from "./pages/Dashboard";
-import Treatment from "./pages/Treatment"; 
+import Treatment from "./pages/Treatment";
 import Perawatan from "./pages/Perawatan";
 import KulitCerah from "./pages/KulitCerah";
 import EventPromoSection from './pages/EventPromo';
@@ -44,6 +44,12 @@ import Location from "./pages/Location";
 import ProdukDetail from './pages/ProdukDetail';
 import TreatmentReviews from "./pages/TreatmentReviews";
 import Product from "./pages/Products";
+import UserProfile from './pages/HalamanUser/UserProfile';
+import UserNotifikasi from './pages/HalamanUser/UserNotifikasi';
+import UserUlasan from './pages/HalamanUser/UserUlasan';
+import UserWishlist from './pages/HalamanUser/UserWishlist';
+import UserPengaturan from './pages/HalamanUser/UserPengaturan';
+import DetailTreatment from './pages/HalamanUser/DetailTreatment';
 
 // function ProdukDetail() {
 //   const { produkId } = useParams();
@@ -67,6 +73,13 @@ function App() {
         <Route path="/user-dashboard" element={<UserDashboard />} />
         <Route path="/riwayat-treatment" element={<RiwayatTreatment />} />
         <Route path="/booking" element={<Booking />} />
+        <Route path="/user-profile" element={<UserProfile />} />
+
+        <Route path="/user-notifikasi" element={<UserNotifikasi />} />
+        <Route path="/user-ulasan" element={<UserUlasan />} />
+        <Route path="/user-wishlist" element={<UserWishlist />} />
+        <Route path="/user-pengaturan" element={<UserPengaturan />} />
+        <Route path="/detail-treatment/:slug" element={<DetailTreatment />} />
       </Route>
 
       {/* Route khusus Admin */}
